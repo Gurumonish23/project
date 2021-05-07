@@ -1,1 +1,0 @@
-from .consultancyinfo import Consultancy
