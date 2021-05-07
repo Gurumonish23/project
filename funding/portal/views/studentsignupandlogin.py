@@ -58,9 +58,9 @@ class studentlogin(View):
         cap_data={'secret':cap_secret,'response':cap_token}
         cap_server_response=requests.post(url=cap_url,data=cap_data)
         cap_json=json.loads(cap_server_response.text)
-        if(cap_json['success']==False):
-            error_message='Captcha is invalid!! Try Again Pls!'
-            return render(request,'signup/New_studentlogin.html',{'error':error_message})
+        #if(cap_json['success']==False):
+        #    error_message='Captcha is invalid!! Try Again Pls!'
+        #    return render(request,'signup/New_studentlogin.html',{'error':error_message})
 
         print("vastunda")
         Email=request.POST.get('Email')
