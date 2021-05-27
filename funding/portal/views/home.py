@@ -11,7 +11,7 @@ from portal.models.stdappli import Stdappli
 from django.core.files.storage import FileSystemStorage
 from portal.models.offer import Offerletter
 def landing(request):
-    return render(request,'signup/landing_page.html')
+    return render(request,'signup/Landing_page.html')
 class stu_accept(View):
     def get(self,request,name="a"):
         data={}

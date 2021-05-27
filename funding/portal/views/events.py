@@ -7,7 +7,7 @@ from django.core.files.storage import FileSystemStorage
 
 class addevents(View):
     def get(self,request):
-        return render(request,'addevents.html')
+        return render(request,'Addevents.html')
     def post(self,request):
         Ename=request.POST.get('Ename')
         Edate=request.POST.get('Edate')
@@ -20,9 +20,9 @@ class addevents(View):
         event=Event(Ename=Ename,Edate=Edate,Edetails=Edetails,Ephoto=url,Email=Email)
         event.register()
         
-        return render(request,'addevents.html')
+        return render(request,'Addevents.html')
 class editevents(View):
     def get(self,request):
         ee=Event.objects.filter(Email=request.session['Email'])
         data={'ee':ee}
-        return render(request,'editevents.html',data)
+        return render(request,'Editevents.html',data)
