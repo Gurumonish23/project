@@ -88,6 +88,7 @@ from .views.agent_home import agent_academic
 from .views.agent_home import agent_overview
 from .views.agent_home import agent_update
 from .views.agent_home import agent_new_application
+from .views.agent_home import Consultbank
 
 from .views.login import login
 from .views.login import new_student_signup
@@ -96,6 +97,10 @@ from .views.agent_home import agent_course
 from .views.agent_home import agent_personal
 from .views.agent_home import agent_professional
 from django.contrib.auth import views as auth_views
+
+#employee
+from .views.employee import Empdeatails
+from .views.employee import Allemp
 
 
 
@@ -203,5 +208,9 @@ urlpatterns=[
     path('agentsignup',agentsignup.as_view(),name='agentsignup'),
     path('agentlogin',agentlogin.as_view(),name='agentloginpage'),
     path('agentlogout',logout,name='agentlogout'),
+
+    path('addemployee',Empdeatails.as_view(),name='addemployee'),
+    path('employees',Allemp,name='addemployee'),
+    path('Cdetails',Consultbank.as_view(),name="Consultancy"),
 
 ]

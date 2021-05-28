@@ -24,6 +24,8 @@ from .models.offer import Offerletter
 
 
 from .models.saved import Saved
+from .models.employeeinfo import Employee
+from .models.consultdetails import Consultancydetails
 # Register your models here.
 admin.site.register(University)
 
@@ -45,3 +47,5 @@ admin.site.register(Stdappli)
 admin.site.register(Consultancy)
 
 admin.site.register(Offerletter)
+admin.site.register(Employee)
+admin.site.register(Consultancydetails)

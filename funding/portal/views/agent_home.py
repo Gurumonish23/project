@@ -9,6 +9,7 @@ from django.contrib.auth.hashers import make_password,check_password
 from django.views import View
 from django.core.files.storage import FileSystemStorage
 from portal.models.studentinfo import Student
+from portal.models.consultdetails import Consultancydetails
 def agent_home(request):
     stddetail=Stdappli.objects.filter(agentmail=request.session['Email2'])
     count=Stdappli.objects.filter(agentmail=request.session['Email2']).count()
@@ -322,3 +323,38 @@ class agent_security(View):
             error_message='Current Password is invalid!!!'
             data['error']=error_message
             return render(request,'agent_portal/security.html',data)
+
+class Consultbank(View):
+    def get(self,request):
+        value={}
+        try:
+            cons=Consultancydetails.objects.get(Email=request.session['Email2'])
+            print(cons)
+            value={'Cname': cons.Cname, 'Aid':cons.Aid,'Aadd':cons.Aadd,'Email':cons.Email,
+                'Bname':cons.Bname,'Accountnumber':cons.Accountnumber,'Branch':cons.Branch,'Ifsccode':cons.Ifsccode}
+        except:
+            pass
+        return render(request,'agent_portal/basic.html',{'value':value})
+    def post(self,request):
+        Cname= request.POST.get('Cname')
+        Aid=request.session['agentid']
+        Aadd=request.POST.get('Aadd')
+        Email=request.session['Email2']
+        Bname=request.POST.get('Bname')
+        Accountnumber=request.POST.get('Accountnumber')
+        Branch=request.POST.get('Branch')
+        Ifsccode=request.POST.get('Ifsccode')
+
+        cons1=Consultancydetails.objects.all().filter(Email=request.session['Email2'])
+    
+        cons=Consultancydetails(Cname= Cname, Aid=Aid,Aadd=Aadd,Email=Email,
+              Bname=Bname,Accountnumber=Accountnumber,Branch=Branch,Ifsccode=Ifsccode   )
+        if(cons1):
+            cons1.delete()
+        cons.register()
+
+        value={'Cname': Cname, 'Aid':Aid,'Aadd':Aadd,'Email':Email,
+              'Bname':Bname,'Accountnumber':Accountnumber,'Branch':Branch,'Ifsccode':Ifsccode}
+
+        return render(request,'agent_portal/basic.html',{'value':value})
+

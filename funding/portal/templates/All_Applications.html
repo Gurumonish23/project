@@ -92,7 +92,7 @@
                                 
                                                         <td>{{i.status}}</td>
                                                         </td>
-                                                        
+                                                                        {% if request.session.Emailemp == None %}
                                                                             <td>
 																			<a href="student/application/{{i.stdname}}/accept"
 																				class="btn btn-primary btn-xs">
@@ -105,6 +105,8 @@
 																			<i class="fa fa-times"></i>
                                                                             </a>
 																		</td>
+                                                                        {% endif %}
+
                                                                         
                                                 </tr>
                                                 {% endfor %}
