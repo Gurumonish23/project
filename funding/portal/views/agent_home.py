@@ -145,7 +145,7 @@ class agent_course(View):
         universities=University.objects.all()
         data={}
         data["universities"]=universities
-
+        
         return render(request,'agent_portal/Course.html',data)
     def post(self,request):
         Email=request.session['agn_stdmail']
