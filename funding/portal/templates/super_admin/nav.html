@@ -10,15 +10,27 @@
 	<meta name="description" content="Responsive Admin Template" />
 	<meta name="author" content="SmartUniversity" />
 	<title>Apply Uni</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+	<link rel="stylesheet" href="http://jqueryui.com/demos/autocomplete/">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+    </script>  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+    </script>  
+    
+    <link href= "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" />  
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.min.js">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<!-- google font -->
+	
 
-	<link href="{% static 'assets/plugins/sweet-alert/sweetalert2.min.css' %}" rel="stylesheet">
-
-
-
-	<!-- icons -->
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
 		integrity="sha512-QKC1UZ/ZHNgFzVKSAhV5v5j73eeL9EEN289eKAEFaAjgAiobVAnVv/AGuPbXsKl1dNoel3kNr6PYnSiTzVVBCw=="
@@ -49,8 +61,9 @@
 	<!-- favicon -->
 	<link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet">
+
 	<style>
 		* {
 			font-family: 'Barlow', sans-serif !important;
@@ -146,7 +159,7 @@
 								</div>
 							</li>
 							<li class="nav-item start open">
-								<a href="/unihome" class="nav-link nav-toggle">
+								<a href="/admin/home" class="nav-link nav-toggle">
 									<i class="material-icons">dashboard</i>
 
 									<span class="title" style="font-family: 'Montserrat', sans-serif;">Dashboard</span>
@@ -155,31 +168,24 @@
 
 							</li>
 							<li class="nav-item">
-								<a href="#" class="nav-link nav-toggle"><i class="material-icons">group</i>
+								<a href="/admin/students" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Students</span></a>
 							</li>
 							<li class="nav-item">
-								<a href="#" class="nav-link nav-toggle"><i class="material-icons">group</i>
+								<a href="/admin/universities" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Universities</span></a>
 							</li>
 							<li class="nav-item">
-								<a href="#" class="nav-link nav-toggle"><i class="material-icons">group</i>
+								<a href="/admin/agent" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Consultancies</span></a>
 							</li>
 	
 							<li class="nav-item">
-								<a href="#" class="nav-link nav-toggle"> <i class="material-icons">settings</i>
-									<span class="title">Settings</span> <span class="arrow"></span>
+								<a href="/admin/settings" class="nav-link nav-toggle"> <i class="material-icons">settings</i>
+									<span class="title">Password/Security</span> <span class="arrow"></span>
 
 								</a>
-								<ul class="sub-menu">
-									<li class="nav-item">
-										<a href="/univsecurity" class="nav-link "> <span class="title">
-												Password/Security</span>
-										</a>
-									</li>
 
-								</ul>
 							</li>
 
 
