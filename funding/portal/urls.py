@@ -1,3 +1,4 @@
+from re import A
 from django.contrib import admin
 from django.urls import path,include
 from.views.home import home
@@ -103,6 +104,14 @@ from django.contrib.auth import views as auth_views
 from .views.employee import Empdeatails
 from .views.employee import Allemp
 
+#super_admin
+
+from .views.admin import Home
+from .views.admin import Courses
+from .views.admin import Settings
+from .views.admin import students
+from .views.admin import universities
+from .views.admin import agent
 
 
 
@@ -211,6 +220,13 @@ urlpatterns=[
     path('agentsignup',agentsignup.as_view(),name='agentsignup'),
     path('agentlogin',agentlogin.as_view(),name='agentloginpage'),
     path('agentlogout',logout,name='agentlogout'),
+    #super_admin
+    path('admin/home',Home,name="home"),
+    path('admin/courses',Courses,name="home"),
+    path('admin/settings',Settings,name="home"),
+    path('admin/universities',universities,name="home"),
+    path('admin/students',students,name="home"),
+    path('admin/agent',agent,name="home"),
 
     path('addemployee',Empdeatails.as_view(),name='addemployee'),
     path('employees',Allemp,name='addemployee'),
