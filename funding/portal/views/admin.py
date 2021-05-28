@@ -15,3 +15,7 @@ def universities(request):
     return render(request,'super_admin/universities.html')
 def agent(request):
     return render(request,'super_admin/agents.html')
+def single_university(request):
+    return render(request,'super_admin/single_university.html')
+def single_agent(request):
+    return render(request,'super_admin/single_agent.html')
