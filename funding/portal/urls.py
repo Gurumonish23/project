@@ -59,6 +59,7 @@ from .views.stdprofile import stdpro
 from .views.stdprofile import stdsaved
 from .views.stdprofile import stdsecurity
 from .views.stdprofile import stdappli
+from .views.stdprofile import stdapplicour
 from .views.temp_pass import emailvalid
 from .views.temp_pass import tempvalidator
 from .views.temp_passstd import emailvalidstd
@@ -89,6 +90,7 @@ from .views.agent_home import agent_academic
 from .views.agent_home import agent_overview
 from .views.agent_home import agent_update
 from .views.agent_home import agent_new_application
+from .views.agent_home import Consultbank
 
 from .views.login import login
 from .views.login import new_student_signup
@@ -97,6 +99,10 @@ from .views.agent_home import agent_course
 from .views.agent_home import agent_personal
 from .views.agent_home import agent_professional
 from django.contrib.auth import views as auth_views
+
+#employee
+from .views.employee import Empdeatails
+from .views.employee import Allemp
 
 #super_admin
 
@@ -164,7 +170,9 @@ urlpatterns=[
 
     path('student/saved/<str:name>/',stdsaved.as_view(),name="saved"),
     path('student/search/<str:name>/',stu_search.as_view(),name="search"),
-    path('stdappli/<str:name>/<str:name1>/<str:name2>/',stdappli.as_view(),name="stdappli"),
+    path('stdappli/<str:name>/<str:name1>/applicationform/<str:name2>',stdapplicour.as_view(),name="stdappli"),
+    path('stdappli/<str:name>/<str:name1>/applicationform/',stdapplicour.as_view(),name="stdappli"),
+    
     path('stdappli/<str:name>/<str:name1>/',stdappli.as_view(),name="stdappli"),
     
     path('student/profile',stu_profile,name="profile"),
@@ -218,6 +226,10 @@ urlpatterns=[
     path('admin/settings',Settings,name="home"),
     path('admin/universities',universities,name="home"),
     path('admin/students',students,name="home"),
-    path('admin/agent',agent,name="home")
+    path('admin/agent',agent,name="home"),
+
+    path('addemployee',Empdeatails.as_view(),name='addemployee'),
+    path('employees',Allemp,name='addemployee'),
+    path('Cdetails',Consultbank.as_view(),name="Consultancy"),
 
 ]

@@ -11,6 +11,8 @@ class Stdappli(models.Model):
     status= models.CharField(max_length=500,null=True)
     program=models.CharField(max_length=500,null=True)
     agentmail=models.CharField(max_length=500,null=True)
+    fee=models.CharField(max_length=500,null=True)
+    Coursename=models.CharField(max_length=500,null=True)
     def __str__(self):
         return self.stdname
     def register(self):

@@ -10,6 +10,8 @@ from portal.models.universityinfo import University
 from django.contrib.auth.hashers import make_password,check_password
 from portal.models.stddetail import Stdacd,Stdcour,Stdpro,Stdpro1,Stdind
 from portal.models.stdappli import Stdappli
+from portal.models.courses import Courses
+from portal.models.application import Application
 from django.contrib.auth.models import User
 
 from datetime import datetime
@@ -472,6 +474,7 @@ class stdappli(View):
         status='applied'
         if(name2=='c'):
             name2='-'
+        
         savedappli=Stdappli(stdname=stdname,univname=univname,stdmail=stdmail,univmail=univmail,
         date=date,program=program,status=status,agentmail=name2)
         try:
@@ -483,6 +486,64 @@ class stdappli(View):
         savedappli.register()
         #return redirect('/overview/'+univname+'/')
         return redirect('/student/applied')
+class stdapplicour(View):
+    def get(self,request,name="a",name1="b",name2="c"):
+        value={'name':name,'name1':name1,'name2':name2}
+        university=University.objects.get(Firstname=name1)
+        print(university)
+        Email=university.Email
+        cour=Courses.objects.filter(Email=Email)
+
+        application1=Application.objects.get(Email=Email)
+        fee=application1.Applyfee
+        value['cour']=cour
+        value['fee']=fee
+
+        return render(request,'student_portal/course.html',{'value':value})
+    def post(self,request,name="a",name1="b",name2="c"):
+        print("gruy")
+        fee=request.POST.get('fee')
+        coursename=request.POST.get('Name')
+        print(coursename)
+        name=name
+        name1=name1
+        student=Student.objects.get(Firstname=name)
+        university=University.objects.get(Firstname=name1)
+        if(student):
+            stdcour=Stdcour.objects.get(Email=student.Email)
+            stdname=student.Firstname
+            stdmail=student.Email
+        else:
+            student=stdind.objects.get(Firstname=name)
+            stdcour=Stdcour.objects.get(Email=stdind.Email)
+            stdname=student.Firstname
+            stdmail=student.Email
+        univname=university.Firstname
+        
+        univmail=university.Email
+        date=datetime.date(datetime.now())
+        program=stdcour.Applyingfor
+        std=Stdappli.objects.filter(stdmail=stdmail)
+        status='applied'
+        if(name2=='c'):
+            name2='-'
+        
+        savedappli=Stdappli(stdname=stdname,univname=univname,stdmail=stdmail,univmail=univmail,
+        date=date,program=program,status=status,agentmail=name2,Coursename=coursename,fee=fee)
+        try:
+            saved=Stdappli.objects.filter(univmail=univmail).get(stdmail=stdmail)
+            if(saved):
+                saved.delete()
+        except:
+            pass
+        savedappli.register()
+        if(name2!="c"):
+            return redirect("agent_home")
+        else:
+            return redirect('/student/applied')
+        
+
+
     
 
 

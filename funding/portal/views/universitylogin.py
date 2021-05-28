@@ -3,6 +3,7 @@ import requests,json
 from django.contrib.auth.hashers import check_password
 from django.http import HttpResponse
 from portal.models.universityinfo import University
+from portal.models.employeeinfo import Employee
 #from Portal.models.stddetail import Stddetail
 from django.contrib.auth.hashers import check_password
 from django.views import View
@@ -28,12 +29,19 @@ class universitylogin(View):
         print("vastunda")
         Email=request.POST.get('Email')
         Password=request.POST.get('Password')
+
         university=University.get_university_by_email(Email)
+        if(university):
+            print("amartya")
+            pass
+        else:
+            employee1=Employee.get_employee_by_email(Email)
         error_message= None
         if university :
             flag= check_password(Password,university.Password)
             print("hai")
             if flag:
+                request.session['Emailemp']=None
                 request.session['University']=university.id
                 request.session['Firstname']=university.Firstname
                 request.session['Email']=university.Email
@@ -51,6 +59,18 @@ class universitylogin(View):
                     '''
             else:
                 error_message='Password is invalid!!!'
+        elif employee1:
+            if(Password == employee1.Emppassword):
+                request.session['Emailemp']=employee1.Empmail
+                request.session['Email']=employee1.Univmail
+                university=University.get_university_by_email(request.session['Email'])
+                request.session['Firstname']=university.Firstname
+                request.session['Phonenumber']=university.Phonenumber
+                value={'Name':request.session['Firstname']}
+                data={'value':value}
+                return render(request,'home_content.html',data)
+            else:
+                error_message='Password is invalid!!!' 
         else:
             error_message='Email is invalid!!!'
         return render(request,'signup/New_login.html',{'error':error_message})
