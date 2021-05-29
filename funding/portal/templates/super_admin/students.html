@@ -54,13 +54,14 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                {% for i in stddetail %}
                                                 <tr class="odd gradeX">
                                                     <td class="patient-img">
                                                         <img src="https://image.shutterstock.com/image-photo/confident-handsome-student-holding-books-260nw-366568778.jpg"
                                                             alt="">
                                                     </td>
-                                                    <td class="left">14</td>
-                                                    <td>Jacob Ryan</td>
+                                                    <td class="left">{{forloop.counter}}</td>
+                                                    <td>{{i.stdname}}</td>
                                                     <td class="left">US</td>
                                                     <td><a href="tel:444543564">
                                                             Fall </a></td>
@@ -72,26 +73,9 @@
                                                     </td>
                                                     <td>CSE</td>
                                                 </tr>
-                                                <tr class="odd gradeX">
-                                                    <td class="patient-img">
-                                                        <img src="https://image.shutterstock.com/image-photo/confident-handsome-student-holding-books-260nw-366568778.jpg"
-                                                            alt="">
-                                                    </td>
-                                                    <td class="left">14</td>
-                                                    <td>Jacob Ryan</td>
-                                                    <td class="left">India</td>
-                                                    <td><a href="tel:444543564">
-                                                            Spring </a></td>
-                                                    <td><a href="mailto:shuxer@gmail.com">
-                                                            johnson@gmail.com </a></td>
-                                                    <td class="left">03 Dec 2001</td>
-                                                    <td style="color: Red;">
-                                                        Rejected
-                                                    </td>
-                                                    <td>CSE</td>
-                                                </tr>
                                                 
-
+                                                
+                                                {% endfor %}
 
                                             </tbody>
                                         </table>
