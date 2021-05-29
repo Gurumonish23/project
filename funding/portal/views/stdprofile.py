@@ -502,6 +502,8 @@ class stdapplicour(View):
         return render(request,'student_portal/course.html',{'value':value})
     def post(self,request,name="a",name1="b",name2="c"):
         print("gruy")
+        count=Stdappli.objects.all().count()
+        id=count+1
         fee=request.POST.get('fee')
         coursename=request.POST.get('Name')
         print(coursename)
@@ -528,7 +530,7 @@ class stdapplicour(View):
         if(name2=='c'):
             name2='-'
         
-        savedappli=Stdappli(stdname=stdname,univname=univname,stdmail=stdmail,univmail=univmail,
+        savedappli=Stdappli(pstatus="process",id=id,stdname=stdname,univname=univname,stdmail=stdmail,univmail=univmail,
         date=date,program=program,status=status,agentmail=name2,Coursename=coursename,fee=fee)
         try:
             saved=Stdappli.objects.filter(univmail=univmail).get(stdmail=stdmail)
@@ -537,11 +539,20 @@ class stdapplicour(View):
         except:
             pass
         savedappli.register()
-        if(name2!="c"):
-            return redirect("agent_home")
-        else:
-            return redirect('/student/applied')
+        value={'name':name,'name1':name1,'name2':name2}
+        university=University.objects.get(Firstname=name1)
+        print(university)
+        Email=university.Email
+        cour=Courses.objects.filter(Email=Email)
+
+        application1=Application.objects.get(Email=Email)
+        fee=application1.Applyfee
+        value['cour']=cour
+        value={'id':id,'stdname':stdname,'univname':univname,'stdmail':stdmail,'univmail':univmail,
+        'date':date,'program':program,'status':status,'agentmail':name2,'Coursename':coursename,'fee':fee}
         
+        #return redirect('/student/applied')
+        return render(request,'student_portal/course.html',{'value':value})
 
 
     
