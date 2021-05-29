@@ -94,6 +94,7 @@ from .views.agent_home import agent_overview
 from .views.agent_home import agent_update
 from .views.agent_home import agent_new_application
 from .views.agent_home import Consultbank
+from .views.agent_home import viewcommision
 
 from .views.login import login
 from .views.login import new_student_signup
@@ -237,7 +238,10 @@ urlpatterns=[
     path('admin/students',students,name="home"),
     path('admin/agent',agent,name="home"),
     path('admin/commision',commision.as_view(),name="commision"),
-    path('admin/addcommision/<str:name>',addcommision,name="addcommision"),
+    path('admin/addcommision/<str:name>',addcommision.as_view(),name="addcommision"),
+    path('agent/viewcommision',viewcommision.as_view(),name="viewcommision"),
+    
+    
 
 
 

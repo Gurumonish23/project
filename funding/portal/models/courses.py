@@ -4,6 +4,7 @@ from django.core.validators import MinLengthValidator
 class Courses(models.Model):
     Name=models.CharField(max_length=50,null=True)
     Type=models.CharField(max_length=50,null=True)
+    com=models.CharField(max_length=50,null=True)
     Depname=models.CharField(max_length=50,null=True)
     Courseapp=models.CharField(max_length=50,null=True)
     Appauth=models.CharField(max_length=50,null=True)

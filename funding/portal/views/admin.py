@@ -10,15 +10,14 @@ from portal.models.universityinfo import University
 from django.contrib.auth.hashers import make_password,check_password
 from portal.models.stddetail import Stdacd,Stdcour,Stdpro,Stdpro1,Stdind
 from portal.models.stdappli import Stdappli
+from portal.models.coursecommision import Coursecommision
 
 from portal.models.courses import Courses
 from portal.models.application import Application
-
-
 def Home(request):
     return render(request,'super_admin/home.html')
-def Courses(request):
-    return render(request,'super_admin/courses.html')
+#def Courses(request):
+#    return render(request,'super_admin/courses.html')
 def Settings(request):
     return render(request,'super_admin/settings.html')
 def students(request):
@@ -53,7 +52,8 @@ def universities(request):
                 list1.append({'name':name[i],
                          'email':email[i],
                               'phone':phone[i],
-                                                  'country':country[i],'rank':rank[i],'award':award[i]})    
+                                'country':country[i],'rank':rank[i],'award':award[i]})    
+                                                      
         #print(detail[name])
     data['detail']=list1
     return render(request,'super_admin/universities.html',data)
@@ -79,11 +79,41 @@ class commision(View):
         value['uniname']=uniname
         data['value']=value
         return render(request,'super_admin/commision.html',data)
-def addcommision(request,name="a"):
-    university=University.objects.get(Firstname=name)
-    print(university.Email)
-    courses1=Courses.objects.all()
-    print(courses1)
-    data={}
-    data['courses1']=courses1
-    return render(request,'super_admin/addcommision.html',data)
+class addcommision(View):
+    def get(self,request,name="a"):
+        university=University.objects.get(Firstname=name)
+        print(university.Email)
+        courses1=Courses.objects.filter(Email=university.Email)
+        print(courses1)
+        data={}
+        data['courses1']=courses1
+        data['uniname']=name
+        return render(request,'super_admin/addcommision.html',data)
+
+    def post(self,request,name="a"):
+        unimail=University.objects.get(Firstname=name).Email
+        name1=request.POST.getlist('name[]')
+        curr=request.POST.getlist('curr[]')
+        amo=request.POST.getlist('amo[]')
+        com=request.POST.getlist('com[]')
+        for i in range(0,len(name1)):
+            commision=Coursecommision(Uniname=name,Unimail=unimail,Coursename=name1[i],
+            Coursecurr=curr[i],Courseamo=amo[i],Coursecomm=com[i])
+            commision1=False
+            try:
+                commision1=Coursecommision.objects.filter(Unimail=unimail).get(Coursename=name1[i])
+            except:
+                pass
+            if(commision1):
+                commision1.delete()
+            commision.register()
+            course1=Courses.objects.filter(Email=unimail).get(Name=name1[i])
+            course1.com=com[i]
+            course1.register()
+        
+        courses1=Courses.objects.filter(Email=unimail)
+        print(courses1)
+        data={}
+        data['courses1']=courses1
+        data['uniname']=name
+        return render(request,'super_admin/addcommision.html',data)
