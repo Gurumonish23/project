@@ -25,7 +25,35 @@ def students(request):
     #return render(request,'.html',data)
     return render(request,'super_admin/students.html',data)
 def universities(request):
-    return render(request,'super_admin/universities.html')
+    university1=University.objects.all()
+    data={}
+    list=[]
+    list1=[]
+    name=[]
+    phone=[]
+    country=[]
+    email=[]
+    rank=[]
+    award=[]
+    for i in university1:
+       list.extend([[i.Firstname,i.Email]])
+
+    for i in range(0,len(list)):
+        name.append(list[i][0])
+        email.append(list[i][1])
+        phone.append(University.objects.get(Firstname=list[i][0]).Phonenumber)
+        country.append(Univcon.objects.get(Email=list[i][1]).Location)
+        rank.append(Univdetail.objects.get(Email=list[i][1]).Rank)
+        award.append(Univcon.objects.get(Email=list[i][1]).Award)
+        #detail[name]={'name':name,'award':award,'country':country,'rank':rank,'email':email,'phone':phone}
+    for i in range(0,len(list)):
+                list1.append({'name':name[i],
+                         'email':email[i],
+                              'phone':phone[i],
+                                                  'country':country[i],'rank':rank[i],'award':award[i]})    
+        #print(detail[name])
+    data['detail']=list1
+    return render(request,'super_admin/universities.html',data)
 def agent(request):
     return render(request,'super_admin/agents.html')
 def single_university(request):

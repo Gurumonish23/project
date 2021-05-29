@@ -45,12 +45,12 @@
                                                     <th></th>
                                                     <th> No </th>
                                                     <th> Name </th>
-                                                    <th> Country </th>
-                                                    <th> Intake </th>
+        
                                                     <th> Email </th>
                                                     <th> Application Date</th>
                                                     <th> Status </th>
                                                     <th> Courses </th>
+                                                    <th> Payment status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -61,17 +61,15 @@
                                                             alt="">
                                                     </td>
                                                     <td class="left">{{forloop.counter}}</td>
-                                                    <td>{{i.stdname}}</td>
-                                                    <td class="left">US</td>
-                                                    <td><a href="tel:444543564">
-                                                            Fall </a></td>
-                                                    <td><a href="mailto:shuxer@gmail.com">
-                                                            johnson@gmail.com </a></td>
-                                                    <td class="left">03 Dec 2001</td>
+                                                    <td><a href="/student/overview/{{i.stdname}}">{{i.stdname}}</a></td>    
+                                                    <td><a href="mailto:{{i.stdmail}}">
+                                                            {{i.stdmail}} </a></td>
+                                                    <td class="left">{{i.date}}</td>
                                                     <td style="color: green;">
-                                                        Accepted
+                                                       {{i.status}}
                                                     </td>
-                                                    <td>CSE</td>
+                                                    <td>{{i.Coursename}}</td>
+                                                    <td> {{i.pstatus}}</td>
                                                 </tr>
                                                 
                                                 

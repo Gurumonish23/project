@@ -43,8 +43,11 @@ def stu_overview(request,name="a"):
         stdpro1=Stdpro1.objects.filter(Email=student.Email)
 
         data={'stdacd':stdacd,'stdpro':stdpro,'stdind':stdind,'stdcour':stdcour,'stdpro1':stdpro1}
-
-        return render(request,'std_univ.html',data)
+        try:
+            if(request.session['Email']):
+                return render(request,'std_univ.html',data)
+        except:
+            return render(request,'super_admin/ad_std.html',data)
 class stu_search(View):
     def get(self,request,name="a"):
         data={}

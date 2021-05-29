@@ -1,5 +1,4 @@
-{}
-{% extends 'student_portal/student_nav.html' %}
+{% extends 'super_admin/nav.html' %}
 
 {% block content %}
 <div class="page-bar">
@@ -8,7 +7,7 @@
             <div class="page-title">Student Page</div>
         </div>
         <ol class="breadcrumb page-breadcrumb pull-right">
-            <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="/student/home">Home</a>&nbsp;<i
+            <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="/">Home</a>&nbsp;<i
                     class="fa fa-angle-right"></i>
             </li>
             <li class="active">Overview</li>
@@ -57,11 +56,7 @@
 										{% endfor %}
 										<!-- END SIDEBAR USER TITLE -->
 										<!-- SIDEBAR BUTTONS -->
-										<div class="profile-userbuttons">
-											<a href="/stdind">
-											<button type="button" 
-												class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-primary">Edit</button></a>
-											</div>
+										
 										<!-- END SIDEBAR BUTTONS -->
 									</div>
 								</div>
@@ -200,21 +195,20 @@
 														</div>
 														<hr>
 													
-                                                        {% endfor %}
-														{% for i in stdcour %}
+                                                        
 														<h4 class="font-bold">Course Applied</h4>
 													
 														<ul>
-															<li>{{i.pcour4}}</li>
+															<li>Data Science</li>
 														</ul>
                                                         <h4 class="font-bold">Desired Year to Start</h4>
 														
 														<ul>
-															<li>{{i.Date}}</li>
+															<li>2025</li>
 														</ul>
-														{% endfor %}
+														
 													</div>
-													
+													{% endfor %}
 												</div>
 												
 											</div>
