@@ -22,6 +22,9 @@ from .views.home import newapplication
 from .views.home import inprogressapplication
 from .views.home import rejectedapplication
 
+from.views.payments import payment,charge
+
+
 from .views.home import events
 from .views.home import addblog
 from .views.home import allblog
@@ -169,6 +172,9 @@ urlpatterns=[
     path('student/settings',stu_settings,name="home"),
     path('student/support',stu_support,name="home"),
     path('student/progress/<str:name>',progressbar,name='progress'),
+
+    path('payment/<str:name>/<str:name1>',payment,name="payment"),
+    path('charge/<str:name>/<str:name1>',charge,name="charge"),
 
     path('student/saved/<str:name>/',stdsaved.as_view(),name="saved"),
     path('student/search/<str:name>/',stu_search.as_view(),name="search"),
