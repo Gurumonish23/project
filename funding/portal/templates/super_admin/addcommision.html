@@ -4,14 +4,14 @@
 <div class="page-bar">
     <div class="page-title-breadcrumb">
         <div class=" pull-left">
-            <div class="page-title">Universities</div>
+            <div class="page-title">University Courses</div>
         </div>
         <ol class="breadcrumb page-breadcrumb pull-right">
             <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
                     href="/unihome">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
             </li>
             
-            <li class="active">Universities</li>
+            <li class="active">Courses</li>
         </ol>
     </div>
 </div>
@@ -25,14 +25,13 @@
                         <div class="col-md-12">
                             <div class="card card-box">
                                 <div class="card-head">
-                                    <header class="p-4">Universities</header>
+                                    <header class="p-4">Courses</header>
 
                                 </div>
                                 <div class="card-body ">
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6 col-6">
                                             <div class="btn-group">
-
                                             </div>
                                         </div>
 
@@ -46,41 +45,33 @@
                                                     <th></th>
                                                     <th> No </th>
                                                     <th> Name </th>
-                                                    <th> Country </th>
-                                    
-                                                    <th> Ph No </th>
-                                                    <th> Email </th>
-                                                    <th> World Ranking </th>
-                                                    <th> No.of Awards</th>
+                                                    <th> Currency </th>
+                                                    <th> Amount </th>
+                                                    <th>Course Commision</th>>
+                                                    
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {% for i in detail %}
-                                               
+                                                {% for i in courses %}
                                                 <tr class="odd gradeX">
                                                     <td class="patient-img">
-                                                        <img src="https://www.usnews.com/dims4/USNEWS/e836bb8/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fb0%2F5a49fe7ceb6d77f5ad2824c373a297%2Fucf_47862357.jpg"
+                                                        <img src="https://image.shutterstock.com/image-photo/confident-handsome-student-holding-books-260nw-366568778.jpg"
                                                             alt="">
                                                     </td>
                                                     <td class="left">{{forloop.counter}}</td>
+                                                    <td><a href="#">{{i.Name}}</a></td>    
                                                     <td>
-                                                        <a href="/overview/{{i.name}}">
-                                                            {{i.name}}
-                                                        </a>
-                                                         </td>
-                                                    <td class="left">{{i.country}}</td>
+                                                            {{i.Curr}} </td>
+                                                    <td class="left">{{i.Amo}}</td>
                                                     
-                                                    <td>{{i.phone}}</td>
-                                                    <td>{{i.email}}</td>
-                                                    <td>
-                                                        {{i.rank}}
-                                                    </td>
-                                                    <td> {{i.award}}</td>
+                                                    <td><input type="text"></td>
+                                                    
                                                 </tr>
                                                 
                                                 
-
                                                 {% endfor %}
+
                                             </tbody>
                                         </table>
                                     </div>

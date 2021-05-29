@@ -4,13 +4,16 @@ from django.http import HttpResponse
 from django.views import View
 from portal.models.stddetail import Stdacd,Stdpro,Stdind,Stdcour,Stdpro1
 from portal.models.univdetail import Univdetail,Univcon
+from portal.models.consultancyinfo import Consultancy
 from portal.models.studentinfo import Student
 from portal.models.universityinfo import University
 from django.contrib.auth.hashers import make_password,check_password
 from portal.models.stddetail import Stdacd,Stdcour,Stdpro,Stdpro1,Stdind
 from portal.models.stdappli import Stdappli
+
 from portal.models.courses import Courses
 from portal.models.application import Application
+
 
 def Home(request):
     return render(request,'super_admin/home.html')
@@ -55,8 +58,32 @@ def universities(request):
     data['detail']=list1
     return render(request,'super_admin/universities.html',data)
 def agent(request):
-    return render(request,'super_admin/agents.html')
+    agent=Consultancy.objects.all()
+    data={}
+    data['agent']=agent
+    return render(request,'super_admin/agents.html',data)
 def single_university(request):
     return render(request,'super_admin/single_university.html')
 def single_agent(request):
     return render(request,'super_admin/single_agent.html')
+class commision(View):
+    def get(self,request):
+        university=University.objects.all()
+        data={}
+        data['university']=university        
+        return render(request,'super_admin/commision.html',data)
+    def post(self,request):
+        uniname=request.POST.get('uniname')
+        value={}
+        data={}
+        value['uniname']=uniname
+        data['value']=value
+        return render(request,'super_admin/commision.html',data)
+def addcommision(request,name="a"):
+    university=University.objects.get(Firstname=name)
+    print(university.Email)
+    courses1=Courses.objects.all()
+    print(courses1)
+    data={}
+    data['courses1']=courses1
+    return render(request,'super_admin/addcommision.html',data)

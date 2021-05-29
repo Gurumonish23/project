@@ -115,9 +115,8 @@ from .views.admin import Settings
 from .views.admin import students
 from .views.admin import universities
 from .views.admin import agent
-from .views.admin import single_agent
-from .views.admin import single_university
-
+from .views.admin import commision
+from .views.admin import addcommision
 
 
 
@@ -229,14 +228,18 @@ urlpatterns=[
     path('agentlogin',agentlogin.as_view(),name='agentloginpage'),
     path('agentlogout',logout,name='agentlogout'),
     #super_admin
+
+    
     path('admin/home',Home,name="home"),
     path('admin/courses',Courses,name="home"),
     path('admin/settings',Settings,name="home"),
     path('admin/universities',universities,name="home"),
     path('admin/students',students,name="home"),
     path('admin/agent',agent,name="home"),
-    path('admin/single_university',single_university,name="name"),
-    path('admin/single_agent',single_agent,name="name"),
+    path('admin/commision',commision.as_view(),name="commision"),
+    path('admin/addcommision/<str:name>',addcommision,name="addcommision"),
+
+
 
     path('addemployee',Empdeatails.as_view(),name='addemployee'),
     path('employees',Allemp,name='addemployee'),
