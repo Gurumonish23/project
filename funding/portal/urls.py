@@ -117,7 +117,7 @@ from .views.admin import students
 from .views.admin import universities
 from .views.admin import agent
 from .views.admin import commision
-from .views.admin import addcommision
+from .views.admin import addcommision,adminlogin,adminlogout,addemployee
 
 
 
@@ -231,7 +231,7 @@ urlpatterns=[
     #super_admin
 
     
-    path('admin/home',Home,name="home"),
+    path('admin/home',Home,name="adminhome"),
     path('admin/courses',Courses,name="home"),
     path('admin/settings',Settings,name="home"),
     path('admin/universities',universities,name="home"),
@@ -240,11 +240,11 @@ urlpatterns=[
     path('admin/commision',commision.as_view(),name="commision"),
     path('admin/addcommision/<str:name>',addcommision.as_view(),name="addcommision"),
     path('agent/viewcommision',viewcommision.as_view(),name="viewcommision"),
+    path('admin/addemployee',addemployee.as_view(),name="addemployee"),
     
-    
 
-
-
+    path('adminlogout',adminlogout,name='adminlogout'),
+    path('adminlogin',adminlogin.as_view(),name='adminlogin'),
     path('addemployee',Empdeatails.as_view(),name='addemployee'),
     path('employees',Allemp,name='addemployee'),
     path('Cdetails',Consultbank.as_view(),name="Consultancy"),

@@ -11,11 +11,75 @@ from django.contrib.auth.hashers import make_password,check_password
 from portal.models.stddetail import Stdacd,Stdcour,Stdpro,Stdpro1,Stdind
 from portal.models.stdappli import Stdappli
 from portal.models.coursecommision import Coursecommision
-
+from portal.models.superadmin import Superadmin
 from portal.models.courses import Courses
 from portal.models.application import Application
+from portal.models.addemployee import Addemployee
+
+
+class adminlogin(View):
+    def get(self,request):
+        return render(request,'super_admin/adminlogin.html')
+    def post(self,request):
+        email=request.POST.get('Email')
+        password=request.POST.get('Password')
+        error=''
+        
+        try:
+            try:
+                admin=Superadmin.objects.get(Email=email)
+                if(admin.Password==password):
+                    request.session['adminemail']=email
+                    request.session['roleacess']=None
+                    return redirect('adminhome')
+                
+            except:
+                print("nanda")
+                admin=Addemployee.objects.get(Email=email)
+                print("kishore")
+                if(admin.Password==password):
+                    print("mounish")
+                    request.session['adminempemail']=email
+                    request.session['roleacess']=admin.Roleaccess
+                    return redirect('adminhome')
+        except:
+            error="Email Does Not Exist"
+            return render(request,'super_admin/adminlogin.html',{'error':error})
+
+
+class addemployee(View):
+    def get(self,request):
+        return render(request,'super_admin/adminemp.html')
+    def post(self,request):
+        name=request.POST.get('Name')
+        email=request.POST.get('Email')
+        phone=request.POST.get('Phonenumber')
+        adminmail=request.session['adminemail']
+        roleacess=request.POST.get('Roleacess')
+        password=request.POST.get('Password')
+        confirmpassword=request.POST.get('Confirmpassword')
+
+        employee=Addemployee(Firstname= name, Phonenumber=phone,Roleaccess=roleacess,Adminmail=adminmail,
+        Email =email ,Password =password,Confirmpassword =confirmpassword )
+        employee.register()
+        return render(request,'super_admin/adminemp.html')
+        
+def adminlogout(request):
+    request.session.clear() 
+    return redirect('adminlogin') 
+
 def Home(request):
-    return render(request,'super_admin/home.html')
+    data={}
+    data['students']=Student.objects.all().count()
+    data['universities']=University.objects.all().count()
+    data['agents']=Consultancy.objects.all().count()
+    data['totappli']=Stdappli.objects.all().count()
+    data['stdappli']=Stdappli.objects.all().filter(agentmail="-").count()
+    data['agentappli']=Stdappli.objects.exclude(agentmail='-').count()
+    data['accepted']=Stdappli.objects.all().filter(status="accept").count()
+    data['rejected']=Stdappli.objects.all().filter(status="reject").count()
+
+    return render(request,'super_admin/home.html',data)
 #def Courses(request):
 #    return render(request,'super_admin/courses.html')
 def Settings(request):
