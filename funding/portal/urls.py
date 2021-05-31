@@ -22,6 +22,9 @@ from .views.home import newapplication
 from .views.home import inprogressapplication
 from .views.home import rejectedapplication
 
+from.views.payments import payment,charge
+
+
 from .views.home import events
 from .views.home import addblog
 from .views.home import allblog
@@ -91,6 +94,7 @@ from .views.agent_home import agent_overview
 from .views.agent_home import agent_update
 from .views.agent_home import agent_new_application
 from .views.agent_home import Consultbank
+from .views.agent_home import viewcommision
 
 from .views.login import login
 from .views.login import new_student_signup
@@ -112,9 +116,8 @@ from .views.admin import Settings
 from .views.admin import students
 from .views.admin import universities
 from .views.admin import agent
-from .views.admin import single_agent
-from .views.admin import single_university
-
+from .views.admin import commision
+from .views.admin import addcommision,adminlogin,adminlogout,addemployee
 
 
 
@@ -170,6 +173,9 @@ urlpatterns=[
     path('student/support',stu_support,name="home"),
     path('student/progress/<str:name>',progressbar,name='progress'),
 
+    path('payment/<str:name>/<str:name1>',payment,name="payment"),
+    path('charge/<str:name>/<str:name1>',charge,name="charge"),
+
     path('student/saved/<str:name>/',stdsaved.as_view(),name="saved"),
     path('student/search/<str:name>/',stu_search.as_view(),name="search"),
     path('stdappli/<str:name>/<str:name1>/applicationform/<str:name2>',stdapplicour.as_view(),name="stdappli"),
@@ -223,15 +229,22 @@ urlpatterns=[
     path('agentlogin',agentlogin.as_view(),name='agentloginpage'),
     path('agentlogout',logout,name='agentlogout'),
     #super_admin
-    path('admin/home',Home,name="home"),
+
+    
+    path('admin/home',Home,name="adminhome"),
     path('admin/courses',Courses,name="home"),
     path('admin/settings',Settings,name="home"),
     path('admin/universities',universities,name="home"),
     path('admin/students',students,name="home"),
     path('admin/agent',agent,name="home"),
-    path('admin/single_university',single_university,name="name"),
-    path('admin/single_agent',single_agent,name="name"),
+    path('admin/commision',commision.as_view(),name="commision"),
+    path('admin/addcommision/<str:name>',addcommision.as_view(),name="addcommision"),
+    path('agent/viewcommision',viewcommision.as_view(),name="viewcommision"),
+    path('admin/addemployee',addemployee.as_view(),name="addemployee"),
+    
 
+    path('adminlogout',adminlogout,name='adminlogout'),
+    path('adminlogin',adminlogin.as_view(),name='adminlogin'),
     path('addemployee',Empdeatails.as_view(),name='addemployee'),
     path('employees',Allemp,name='addemployee'),
     path('Cdetails',Consultbank.as_view(),name="Consultancy"),

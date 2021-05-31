@@ -21,11 +21,14 @@ from .models.stdappli import Stdappli
 
 from .models.consultancyinfo import Consultancy
 from .models.offer import Offerletter
-
+from .models.superadmin import Superadmin
+from .models.addemployee import Addemployee
 
 from .models.saved import Saved
 from .models.employeeinfo import Employee
 from .models.consultdetails import Consultancydetails
+from .models.coursecommision import Coursecommision
+
 # Register your models here.
 admin.site.register(University)
 
@@ -49,3 +52,6 @@ admin.site.register(Consultancy)
 admin.site.register(Offerletter)
 admin.site.register(Employee)
 admin.site.register(Consultancydetails)
+admin.site.register(Coursecommision)
+admin.site.register(Superadmin)
+admin.site.register(Addemployee)

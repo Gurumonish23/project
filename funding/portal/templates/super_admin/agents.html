@@ -45,56 +45,30 @@
                                                     <th></th>
                                                     <th> No </th>
                                                     <th> Name </th>
-                                                    <th> Country </th>
-                                                    <th> State </th>
+                                                    <th> Agent id </th>
+    
                                                     <th> Ph No </th>
                                                     <th> Email </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                {% for i in agent %}
                                                 <tr class="odd gradeX">
                                                     <td class="patient-img">
                                                         <img src="https://www.usnews.com/dims4/USNEWS/e836bb8/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fb0%2F5a49fe7ceb6d77f5ad2824c373a297%2Fucf_47862357.jpg"
                                                             alt="">
                                                     </td>
-                                                    <td class="left">1</td>
-                                                    <td>Harsha Consultancy </td>
-                                                    <td class="left">Canada</td>
-                                                    <td>AP</td>
-                                                    <td>999999</td>
-                                                    <td>harsha@gmail.com</td>
+                                                    <td class="left">{{forloop.counter}}</td>
+                                                    <td>{{i.Firstname}} </td>
+                                                    <td class="left">{{i.Agentid}}</td>
+                                                    
+                                                    <td>{{i.Phonenumber}}</td>
+                                                    <td>{{i.Email}}</td>
                                                     
                                                 </tr>
-                                                <tr class="odd gradeX">
-                                                    <td class="patient-img">
-                                                        <img src="https://www.usnews.com/dims4/USNEWS/e836bb8/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fb0%2F5a49fe7ceb6d77f5ad2824c373a297%2Fucf_47862357.jpg"
-                                                            alt="">
-                                                    </td>
-                                                    <td class="left">14</td>
-                                                    <td>
-                                                        <a href="/admin/single_agent">
-                                                            Harsha University
-                                                        </a>
-                                                         </td>
-                                                    <td class="left">Canada</td>
-                                                    <td>AP</td>
-                                                    <td>999999</td>
-                                                    <td>harsha@gmail.com</td>
-                                                    
-                                                </tr>
-                                                <tr class="odd gradeX">
-                                                    <td class="patient-img">
-                                                        <img src="https://www.usnews.com/dims4/USNEWS/e836bb8/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fb0%2F5a49fe7ceb6d77f5ad2824c373a297%2Fucf_47862357.jpg"
-                                                            alt="">
-                                                    </td>
-                                                    <td class="left">14</td>
-                                                    <td>Harsha University </td>
-                                                    <td class="left">Canada</td>
-                                                    <td>AP</td>
-                                                    <td>999999</td>
-                                                    <td>harsha@gmail.com</td>
-                                                    
-                                                </tr>
+                                                {% endfor %}
+                                                
+                                                
                                                 
 
 

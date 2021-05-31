@@ -45,53 +45,35 @@
                                                     <th></th>
                                                     <th> No </th>
                                                     <th> Name </th>
-                                                    <th> Country </th>
-                                                    <th> Intake </th>
+        
                                                     <th> Email </th>
                                                     <th> Application Date</th>
                                                     <th> Status </th>
                                                     <th> Courses </th>
+                                                    <th> Payment status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                {% for i in stddetail %}
                                                 <tr class="odd gradeX">
                                                     <td class="patient-img">
                                                         <img src="https://image.shutterstock.com/image-photo/confident-handsome-student-holding-books-260nw-366568778.jpg"
                                                             alt="">
                                                     </td>
-                                                    <td class="left">14</td>
-                                                    <td>Jacob Ryan</td>
-                                                    <td class="left">US</td>
-                                                    <td><a href="tel:444543564">
-                                                            Fall </a></td>
-                                                    <td><a href="mailto:shuxer@gmail.com">
-                                                            johnson@gmail.com </a></td>
-                                                    <td class="left">03 Dec 2001</td>
+                                                    <td class="left">{{forloop.counter}}</td>
+                                                    <td><a href="/student/overview/{{i.stdname}}">{{i.stdname}}</a></td>    
+                                                    <td><a href="mailto:{{i.stdmail}}">
+                                                            {{i.stdmail}} </a></td>
+                                                    <td class="left">{{i.date}}</td>
                                                     <td style="color: green;">
-                                                        Accepted
+                                                       {{i.status}}
                                                     </td>
-                                                    <td>CSE</td>
-                                                </tr>
-                                                <tr class="odd gradeX">
-                                                    <td class="patient-img">
-                                                        <img src="https://image.shutterstock.com/image-photo/confident-handsome-student-holding-books-260nw-366568778.jpg"
-                                                            alt="">
-                                                    </td>
-                                                    <td class="left">14</td>
-                                                    <td>Jacob Ryan</td>
-                                                    <td class="left">India</td>
-                                                    <td><a href="tel:444543564">
-                                                            Spring </a></td>
-                                                    <td><a href="mailto:shuxer@gmail.com">
-                                                            johnson@gmail.com </a></td>
-                                                    <td class="left">03 Dec 2001</td>
-                                                    <td style="color: Red;">
-                                                        Rejected
-                                                    </td>
-                                                    <td>CSE</td>
+                                                    <td>{{i.Coursename}}</td>
+                                                    <td> {{i.pstatus}}</td>
                                                 </tr>
                                                 
-
+                                                
+                                                {% endfor %}
 
                                             </tbody>
                                         </table>

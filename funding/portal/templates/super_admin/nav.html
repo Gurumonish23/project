@@ -120,7 +120,7 @@
 
 								<li class="divider"> </li>
 								<li>
-									<a href="/univlogout">
+									<a href="/adminlogout">
 										<i class="icon-logout"></i> Log Out </a>
 								</li>
 							</ul>
@@ -167,18 +167,55 @@
 								</a>
 
 							</li>
+							{% if request.session.roleacess != None %}
+							{% if "Student" in request.session.roleacess %}
 							<li class="nav-item">
 								<a href="/admin/students" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Students</span></a>
 							</li>
+							{% endif %}
+							{% else %}
+							<li class="nav-item">
+								<a href="/admin/students" class="nav-link nav-toggle"><i class="material-icons">group</i>
+									<span class="title">Students</span></a>
+							</li>
+							{% endif %}
+							{% if request.session.roleacess != None %}
+							{% if "University" in request.session.roleacess %}
 							<li class="nav-item">
 								<a href="/admin/universities" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Universities</span></a>
 							</li>
+							{% endif %}
+							{% else %}
+							<li class="nav-item">
+								<a href="/admin/universities" class="nav-link nav-toggle"><i class="material-icons">group</i>
+									<span class="title">Universities</span></a>
+							</li>
+							{% endif %}
+							{% if request.session.roleacess != None %}
+							{% if "Agent" in request.session.roleacess %}
 							<li class="nav-item">
 								<a href="/admin/agent" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Consultancy</span></a>
 							</li>
+							{% endif %}
+							{% else %}
+							<li class="nav-item">
+								<a href="/admin/agent" class="nav-link nav-toggle"><i class="material-icons">group</i>
+									<span class="title">Consultancy</span></a>
+							</li>
+							{% endif %}
+							<li class="nav-item">
+								<a href="/admin/commision" class="nav-link nav-toggle"><i class="material-icons">group</i>
+									<span class="title">Add Commision</span></a>
+							</li>
+							{% if request.session.roleacess == None %}
+							<li class="nav-item">
+								<a href="/admin/addemployee" class="nav-link nav-toggle"><i class="material-icons">group</i>
+									<span class="title">Add Employes</span></a>
+							</li>
+							{% endif %}
 	
 							<li class="nav-item">
 								<a href="/admin/settings" class="nav-link nav-toggle"> <i class="material-icons">settings</i>
