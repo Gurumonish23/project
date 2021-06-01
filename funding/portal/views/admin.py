@@ -82,8 +82,51 @@ def Home(request):
     return render(request,'super_admin/home.html',data)
 #def Courses(request):
 #    return render(request,'super_admin/courses.html')
-def Settings(request):
-    return render(request,'super_admin/settings.html')
+class Settings(View):
+    def get(self,request):
+        super1=Superadmin.objects.get(Email=request.session['adminemail'])
+        print(super1.Phonenumber)
+        data={'Phonenumber':super1.Phonenumber,'Email':super1.Email}
+        return render(request,'super_admin/settings.html',data)
+        
+    def post (self,request):
+        data={}
+        super1=Superadmin.objects.get(Email=request.session['adminemail'])
+        Phonenumber=request.POST.get('Phonenumber')
+        if(Phonenumber!=None):
+            super1.Phonenumber=Phonenumber
+            super1.register()
+        print(super1.Phonenumber)
+        
+        a=super1.Password
+        Password=request.POST.get('Password')
+        Confirmpassword=request.POST.get('Confirmpassword')
+        Confirmpassword1=request.POST.get('Confirmpassword1')
+        error_message=None
+        flag= (a==Password)
+        if(Phonenumber):
+            data={'Phonenumber':super1.Phonenumber}
+            return render(request,'super_admin/settings.html',data)
+        if(flag):
+            if(Confirmpassword == Confirmpassword1):
+
+                super1.Password=Confirmpassword
+                super1.Confirmpassword=Confirmpassword1
+                super1.register()
+                data={'Phonenumber':super1.Phonenumber,'Email':super1.Email}
+                return render(request,'super_admin/settings.html',data)
+            else:
+                
+                error_message='Password and confirm password doesnt match !!!'
+                data={'Phonenumber':super1.Phonenumber,'Email':super1.Email}
+                data['error']=error_message
+
+                return render(request,'super_admin/settings.html',data)
+        else:
+            error_message='Current Password is invalid!!!'
+            data={'Phonenumber':super1.Phonenumber,'Email':super1.Email}
+            data['error']=error_message
+        return render(request,'super_admin/settings.html',data)
 def students(request):
     stddetail=Stdappli.objects.all()
     data={}
