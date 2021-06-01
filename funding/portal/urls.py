@@ -94,6 +94,7 @@ from .views.agent_home import agent_overview
 from .views.agent_home import agent_update
 from .views.agent_home import agent_new_application
 from .views.agent_home import Consultbank
+from .views.agent_home import viewcommision
 
 from .views.login import login
 from .views.login import new_student_signup
@@ -116,7 +117,7 @@ from .views.admin import students
 from .views.admin import universities
 from .views.admin import agent
 from .views.admin import commision
-from .views.admin import addcommision
+from .views.admin import addcommision,adminlogin,adminlogout,addemployee
 
 
 
@@ -230,17 +231,20 @@ urlpatterns=[
     #super_admin
 
     
-    path('admin/home',Home,name="home"),
+    path('admin/home',Home,name="adminhome"),
     path('admin/courses',Courses,name="home"),
     path('admin/settings',Settings,name="home"),
     path('admin/universities',universities,name="home"),
     path('admin/students',students,name="home"),
     path('admin/agent',agent,name="home"),
     path('admin/commision',commision.as_view(),name="commision"),
-    path('admin/addcommision/<str:name>',addcommision,name="addcommision"),
+    path('admin/addcommision/<str:name>',addcommision.as_view(),name="addcommision"),
+    path('agent/viewcommision',viewcommision.as_view(),name="viewcommision"),
+    path('admin/addemployee',addemployee.as_view(),name="addemployee"),
+    
 
-
-
+    path('adminlogout',adminlogout,name='adminlogout'),
+    path('adminlogin',adminlogin.as_view(),name='adminlogin'),
     path('addemployee',Empdeatails.as_view(),name='addemployee'),
     path('employees',Allemp,name='addemployee'),
     path('Cdetails',Consultbank.as_view(),name="Consultancy"),

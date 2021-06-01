@@ -10,6 +10,8 @@ from django.views import View
 from django.core.files.storage import FileSystemStorage
 from portal.models.studentinfo import Student
 from portal.models.consultdetails import Consultancydetails
+from portal.models.courses import Courses
+
 def agent_home(request):
     stddetail=Stdappli.objects.filter(agentmail=request.session['Email2'])
     count=Stdappli.objects.filter(agentmail=request.session['Email2']).count()
@@ -357,4 +359,23 @@ class Consultbank(View):
               'Bname':Bname,'Accountnumber':Accountnumber,'Branch':Branch,'Ifsccode':Ifsccode}
 
         return render(request,'agent_portal/basic.html',{'value':value})
+
+class viewcommision(View):
+    def get(self,request,name="a"):
+        university=University.objects.all()
+        data={}
+        data['university']=university       
+        return render(request,'agent_portal/viewcommision.html',data)
+
+    def post(self,request):
+        name=request.POST.get('uniname')
+        university=University.objects.all()
+        unimail=University.objects.get(Firstname=name).Email
+        courses1=Courses.objects.filter(Email=unimail)
+        print(courses1)
+        data={}
+        data['courses1']=courses1
+        data['university']=university
+        data['uniname']=name
+        return render(request,'agent_portal/viewcommision.html',data)
 

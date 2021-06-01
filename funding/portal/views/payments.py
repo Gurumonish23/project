@@ -7,7 +7,7 @@ import stripe
 from django.conf import settings
 from portal.models.stdappli import Stdappli
 
-stripe.api_key=settings.STRIPE_SECRET_KEY
+stripe.api_key=settings.STRIPE_SECRET_KEY   
 
 '''def get_context_data(self,**kwargs):
     context=super().get_context_data(**kwargs)

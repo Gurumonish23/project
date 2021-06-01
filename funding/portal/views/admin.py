@@ -10,21 +10,80 @@ from portal.models.universityinfo import University
 from django.contrib.auth.hashers import make_password,check_password
 from portal.models.stddetail import Stdacd,Stdcour,Stdpro,Stdpro1,Stdind
 from portal.models.stdappli import Stdappli
-
+from portal.models.coursecommision import Coursecommision
+from portal.models.superadmin import Superadmin
 from portal.models.courses import Courses
 from portal.models.application import Application
+from portal.models.addemployee import Addemployee
 
+
+class adminlogin(View):
+    def get(self,request):
+        return render(request,'super_admin/adminlogin.html')
+    def post(self,request):
+        email=request.POST.get('Email')
+        password=request.POST.get('Password')
+        error=''
+        
+        try:
+            try:
+                admin=Superadmin.objects.get(Email=email)
+                if(admin.Password==password):
+                    request.session['adminemail']=email
+                    request.session['roleacess']=None
+                    return redirect('adminhome')
+                
+            except:
+                print("nanda")
+                admin=Addemployee.objects.get(Email=email)
+                print("kishore")
+                if(admin.Password==password):
+                    print("mounish")
+                    request.session['adminempemail']=email
+                    request.session['roleacess']=admin.Roleaccess
+                    return redirect('adminhome')
+        except:
+            error="Email Does Not Exist"
+            return render(request,'super_admin/adminlogin.html',{'error':error})
+
+
+class addemployee(View):
+    def get(self,request):
+        return render(request,'super_admin/adminemp.html')
+    def post(self,request):
+        name=request.POST.get('Name')
+        email=request.POST.get('Email')
+        phone=request.POST.get('Phonenumber')
+        adminmail=request.session['adminemail']
+        roleacess=request.POST.get('Roleacess')
+        password=request.POST.get('Password')
+        confirmpassword=request.POST.get('Confirmpassword')
+
+        employee=Addemployee(Firstname= name, Phonenumber=phone,Roleaccess=roleacess,Adminmail=adminmail,
+        Email =email ,Password =password,Confirmpassword =confirmpassword )
+        employee.register()
+        return render(request,'super_admin/adminemp.html')
+        
+def adminlogout(request):
+    request.session.clear() 
+    return redirect('adminlogin') 
 
 def Home(request):
-    return render(request,'super_admin/home.html')
-def Courses(request):
-    return render(request,'super_admin/courses.html')
-class Settings(View):
-    def get(self,request):
-        return render(request,'super_admin/settings.html')
-    def post(self,request):
-        
-        return render(request,'super_admin/settings.html')
+    data={}
+    data['students']=Student.objects.all().count()
+    data['universities']=University.objects.all().count()
+    data['agents']=Consultancy.objects.all().count()
+    data['totappli']=Stdappli.objects.all().count()
+    data['stdappli']=Stdappli.objects.all().filter(agentmail="-").count()
+    data['agentappli']=Stdappli.objects.exclude(agentmail='-').count()
+    data['accepted']=Stdappli.objects.all().filter(status="accept").count()
+    data['rejected']=Stdappli.objects.all().filter(status="reject").count()
+
+    return render(request,'super_admin/home.html',data)
+#def Courses(request):
+#    return render(request,'super_admin/courses.html')
+def Settings(request):
+    return render(request,'super_admin/settings.html')
 def students(request):
     stddetail=Stdappli.objects.all()
     data={}
@@ -57,7 +116,8 @@ def universities(request):
                 list1.append({'name':name[i],
                          'email':email[i],
                               'phone':phone[i],
-                                                  'country':country[i],'rank':rank[i],'award':award[i]})    
+                                'country':country[i],'rank':rank[i],'award':award[i]})    
+                                                      
         #print(detail[name])
     data['detail']=list1
     return render(request,'super_admin/universities.html',data)
@@ -83,11 +143,41 @@ class commision(View):
         value['uniname']=uniname
         data['value']=value
         return render(request,'super_admin/commision.html',data)
-def addcommision(request,name="a"):
-    university=University.objects.get(Firstname=name)
-    print(university.Email)
-    courses1=Courses.objects.all()
-    print(courses1)
-    data={}
-    data['courses1']=courses1
-    return render(request,'super_admin/addcommision.html',data)
+class addcommision(View):
+    def get(self,request,name="a"):
+        university=University.objects.get(Firstname=name)
+        print(university.Email)
+        courses1=Courses.objects.filter(Email=university.Email)
+        print(courses1)
+        data={}
+        data['courses1']=courses1
+        data['uniname']=name
+        return render(request,'super_admin/addcommision.html',data)
+
+    def post(self,request,name="a"):
+        unimail=University.objects.get(Firstname=name).Email
+        name1=request.POST.getlist('name[]')
+        curr=request.POST.getlist('curr[]')
+        amo=request.POST.getlist('amo[]')
+        com=request.POST.getlist('com[]')
+        for i in range(0,len(name1)):
+            commision=Coursecommision(Uniname=name,Unimail=unimail,Coursename=name1[i],
+            Coursecurr=curr[i],Courseamo=amo[i],Coursecomm=com[i])
+            commision1=False
+            try:
+                commision1=Coursecommision.objects.filter(Unimail=unimail).get(Coursename=name1[i])
+            except:
+                pass
+            if(commision1):
+                commision1.delete()
+            commision.register()
+            course1=Courses.objects.filter(Email=unimail).get(Name=name1[i])
+            course1.com=com[i]
+            course1.register()
+        
+        courses1=Courses.objects.filter(Email=unimail)
+        print(courses1)
+        data={}
+        data['courses1']=courses1
+        data['uniname']=name
+        return render(request,'super_admin/addcommision.html',data)
