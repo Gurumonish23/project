@@ -160,32 +160,36 @@ class univsecurity(View):
         data={}
         university1=University.get_university_by_email(request.session['Email'])
         Phonenumber=request.POST.get('Phonenumber')
-        Phonenumber=university1.Phonenumber
-        print(university1.Phonenumber)
-        university1.register()
+        if(Phonenumber!=None):
+            Phonenumber=university1.Phonenumber
+            print(university1.Phonenumber)
+            university1.register()
         a=university1.Password
         Password=request.POST.get('Password')
         Confirmpassword=request.POST.get('Confirmpassword')
         Confirmpassword1=request.POST.get('Confirmpassword1')
         error_message=None
         flag=check_password(Password,a)
-        #if(Phonenumber):
-        #    data={'Phonenumber':university1.Phonenumber}
-        #    return render(request,'Password_security.html',data)
+        if(Phonenumber):
+            data={'Phonenumber':university1.Phonenumber}
+            return render(request,'Password_security.html',data)
         if(flag):
             if(Confirmpassword == Confirmpassword1):
 
                 university1.Password=make_password(Confirmpassword)
                 university1.Confirmpassword=make_password(Confirmpassword1)
                 university1.register()
+                data={'Phonenumber':university1.Phonenumber}
                 return render(request,'Password_security.html',data)
             else:
                 
                 error_message='Password and current password doesnt match !!!'
+                data={'Phonenumber':university1.Phonenumber}
                 data['error']=error_message
 
                 return render(request,'Password_security.html',data)
         else:
             error_message='Current Password is invalid!!!'
+            data={'Phonenumber':university1.Phonenumber}
             data['error']=error_message
             return render(request,'Password_security.html',data)

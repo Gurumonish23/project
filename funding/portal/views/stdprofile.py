@@ -387,9 +387,10 @@ class stdsecurity(View):
         data={}
         student1=Student.get_student_by_email(request.session['Email1'])
         Phonenumber=request.POST.get('Phonenumber')
-        student1.Phonenumber=Phonenumber
-        print(student1.Phonenumber)
-        student1.register()
+        if(Phonenumber!=None):
+            student1.Phonenumber=Phonenumber
+            print(student1.Phonenumber)
+            student1.register()
         a=student1.Password
         Password=request.POST.get('Password')
         Confirmpassword=request.POST.get('Confirmpassword')
@@ -405,15 +406,18 @@ class stdsecurity(View):
                 student1.Password=make_password(Confirmpassword)
                 student1.Confirmpassword=make_password(Confirmpassword1)
                 student1.register()
+                data={'Phonenumber':student1.Phonenumber}
                 return render(request,'student_portal/Password_security.html',data)
             else:
                 
                 error_message='Password and current password doesnt match !!!'
+                data={'Phonenumber':student1.Phonenumber}
                 data['error']=error_message
 
                 return render(request,'student_portal/Password_security.html',data)
         else:
             error_message='Current Password is invalid!!!'
+            data={'Phonenumber':student1.Phonenumber}
             data['error']=error_message
             return render(request,'student_portal/Password_security.html',data)
 
