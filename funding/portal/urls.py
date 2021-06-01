@@ -233,7 +233,7 @@ urlpatterns=[
     
     path('admin/home',Home,name="adminhome"),
     path('admin/courses',Courses,name="home"),
-    path('admin/settings',Settings,name="home"),
+    path('admin/settings',Settings.as_view(),name="home"),
     path('admin/universities',universities,name="home"),
     path('admin/students',students,name="home"),
     path('admin/agent',agent,name="home"),
