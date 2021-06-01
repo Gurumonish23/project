@@ -19,8 +19,12 @@ def Home(request):
     return render(request,'super_admin/home.html')
 def Courses(request):
     return render(request,'super_admin/courses.html')
-def Settings(request):
-    return render(request,'super_admin/settings.html')
+class Settings(View):
+    def get(self,request):
+        return render(request,'super_admin/settings.html')
+    def post(self,request):
+        
+        return render(request,'super_admin/settings.html')
 def students(request):
     stddetail=Stdappli.objects.all()
     data={}
