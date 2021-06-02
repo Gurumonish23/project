@@ -37,7 +37,7 @@ class temp_pass:
         text = """\
 Hi,
 How are you?
-Greetings From Applyuni"""
+Greetings From Unireo"""
         html = """\
 <!DOCTYPE html>
 <html>

@@ -45,10 +45,12 @@
 	<!-- favicon -->
 	<link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
 	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 	<style>
 		* {
-			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto', sans-serif;
 			 !important
 		}
 
@@ -71,7 +73,7 @@
 					<a href="/">
 						<span><img src="{% static 'images/logo3.png' %}"
 								style="width: 50px;height: 45px;left:-10px;position: relative;" /></span>
-						<span class="logo-default">Applyuni</span> </a>
+						<span class="logo-default">Unireo</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
@@ -168,7 +170,7 @@
 							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
 								data-close-others="true">
 								<img alt="" class="img-circle " src="../assets/img/dp.jpg" />
-								<span class="username username-hide-on-mobile">{{request.session.Firstname2}} </span>
+								<span class="username username-hide-on-mobile" style="font-size: 18px;text-transform:uppercase">{{request.session.Firstname2}} </span>
 								<i class="fa fa-angle-down"></i>
 							</a>
 							<ul class="dropdown-menu dropdown-menu-default">
@@ -206,10 +208,10 @@
 								<div class="user-panel">
 									<div class="pull-left image">
 										<img src="https://images.theconversation.com/files/176677/original/file-20170704-13632-yt4lfx.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip"
-											class="img-circle user-img-image" alt="img">
-									</div>
+											class="img-circle user-img-image" alt="img" style="border-radius: 50%;height:65px;padding:2px;border:1px solid grey;margin-left:70px">
+									</div><br><br><br>
 									<div class="pull-left info">
-										<p style="font-family: 'Montserrat', sans-serif;">{{request.session.Firstname2}}</p>
+										<p style="font-family: 'Roboto', sans-serif; text-transform:capitalize;font-size:20px;margin-left:60px;">{{request.session.Firstname2}}</p>
 									</div>
 								</div>
 							</li>
