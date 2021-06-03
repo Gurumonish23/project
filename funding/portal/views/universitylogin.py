@@ -3,6 +3,7 @@ import requests,json
 from django.contrib.auth.hashers import check_password
 from django.http import HttpResponse
 from portal.models.universityinfo import University
+from portal.models.univdetail import Univdetail,Univcon
 from portal.models.employeeinfo import Employee
 #from Portal.models.stddetail import Stddetail
 from django.contrib.auth.hashers import check_password
@@ -48,7 +49,14 @@ class universitylogin(View):
                 request.session['Phonenumber']=university.Phonenumber
                 value={'Name':request.session['Firstname']}
                 data={'value':value}
-                return render(request,'home_content.html',data)
+                try:
+                    univdetail=Univdetail.objects.all().get(Email=university.Email)
+                    univcon=Univcon.objects.all().get(Email=university.Email)
+                    return render(request,'home_content.html',data)
+                except:
+                    return redirect('univdetail')
+
+                
                 #return render (request,)
                 '''
                 if Universitylogin.return_url():
@@ -68,6 +76,8 @@ class universitylogin(View):
                 request.session['Phonenumber']=university.Phonenumber
                 value={'Name':request.session['Firstname']}
                 data={'value':value}
+                
+
                 return render(request,'home_content.html',data)
             else:
                 error_message='Password is invalid!!!' 

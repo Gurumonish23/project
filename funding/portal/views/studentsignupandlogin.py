@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,HttpResponseRedirect
 from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password
 from portal.models.studentinfo import Student
+from portal.models.stddetail import Stdacd,Stdcour,Stdpro,Stdpro1,Stdind
 from django.views import View
 import requests,json
 from django.shortcuts import render,redirect
@@ -76,7 +77,14 @@ class studentlogin(View):
                 request.session['Email1']=student.Email
                 value={'Name':request.session['Firstname1']}
                 data={'value':value}
-                return render(request,'student_portal/index.html',data)
+                try:
+                    stdacd=Stdacd.objects.all().get(Email=student.Email)
+                    stdind=Stdind.objects.all().get(Email=student.Email)
+                    stdcour=Stdcour.objects.all().get(Email=student.Email)
+                    return render(request,'student_portal/index.html',data)
+                except:
+                    return redirect('stdind')
+                
                 #return render (request,)
                 '''
                 if studentlogin.return_url():

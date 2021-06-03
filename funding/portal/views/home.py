@@ -76,7 +76,7 @@ def home(request):
     data['couper']=couper
     return render(request,'home_content.html',data)
 def table(request):
-    stddetail=Stdappli.objects.filter(univmail=request.session['Email'])
+    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(pstatus="succeeded")
     data={}
     data['stddetail']=stddetail
     return render(request,'All_Applications.html',data)
@@ -180,17 +180,17 @@ def security(request):
     return render(request,'Security.html')
 
 def newapplication(request):
-    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="accept")
+    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="accept").filter(pstatus="succeeded")
     data={}
     data['stddetail']=stddetail
     return render(request,'NewApplications.html',data)
 def inprogressapplication(request):
-    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="applied")
+    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="applied").filter(pstatus="succeeded")
     data={}
     data['stddetail']=stddetail
     return render(request,'InProgressApplication.html',data)
 def rejectedapplication(request):
-    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="reject")
+    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="reject").filter(pstatus="succeeded")
     data={}
     data['stddetail']=stddetail
     return render(request,'RejectedApplication.html',data)
