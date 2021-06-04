@@ -250,3 +250,8 @@ urlpatterns=[
     path('Cdetails',Consultbank.as_view(),name="Consultancy"),
 
 ]
+
+handler404 = 'portal.views.error.error_404'
+#handler500 = 'portal.views.error.error_500'
+handler403 = 'portal.views.error.error_403'
+handler400 = 'portal.views.error.error_400'
