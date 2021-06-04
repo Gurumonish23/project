@@ -67,6 +67,18 @@
           </div>
             {% endfor %}
             <div class="row">
+              {% if rfd %}
+              <form action="/student/progress/{{uniname}}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+              <div class="col-6">
+                <label>{{rfd}}</label>>
+                <label>Pls Upload as Single File</label>>
+                <input type="file" name="rfd">
+                  <br>
+              </div>
+              <button type="submit" value="submit">Submit</button>
+              </form>>
+              {% endif %}
    
             <div class="col-6">
               <a href="/media/{{data}}"><button class="btn btn-primary btn-lg " style="margin-left: 350px;" value="">Download Offer Letter</button></a>

@@ -6,6 +6,7 @@ class Stdappli(models.Model):
     stdname= models.CharField(max_length=500,null=True)
     univname= models.CharField(max_length=500,null=True)
     stdmail= models.CharField(max_length=500,null=True)
+    enroll = models.CharField(max_length=500,null=True)
     univmail= models.CharField(max_length=500,null=True)
     date= models.CharField(max_length=500,null=True)
     status= models.CharField(max_length=500,null=True)
@@ -14,6 +15,7 @@ class Stdappli(models.Model):
     agentmail=models.CharField(max_length=500,null=True)
     fee=models.CharField(max_length=500,null=True)
     Coursename=models.CharField(max_length=500,null=True)
+    rfdfile=models.FileField(upload_to="",null=True)
     def __str__(self):
         return self.stdname
     def register(self):

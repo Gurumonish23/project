@@ -109,7 +109,7 @@ from .views.employee import Empdeatails
 from .views.employee import Allemp
 
 #super_admin
-
+from .views.admin import enroll
 from .views.admin import Home
 from .views.admin import Courses
 from .views.admin import Settings
@@ -235,12 +235,13 @@ urlpatterns=[
     path('admin/courses',Courses,name="home"),
     path('admin/settings',Settings.as_view(),name="home"),
     path('admin/universities',universities,name="home"),
-    path('admin/students',students,name="home"),
+    path('admin/students',students,name="adminstdhome"),
     path('admin/agent',agent,name="home"),
     path('admin/commision',commision.as_view(),name="commision"),
     path('admin/addcommision/<str:name>',addcommision.as_view(),name="addcommision"),
     path('agent/viewcommision',viewcommision.as_view(),name="viewcommision"),
     path('admin/addemployee',addemployee.as_view(),name="addemployee"),
+    path('admin/enrollstatus/<str:status>/<str:stdmail>/<str:univmail>',enroll,name="enroll"),
     
 
     path('adminlogout',adminlogout,name='adminlogout'),

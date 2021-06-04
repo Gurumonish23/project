@@ -20,20 +20,32 @@ class stu_accept(View):
     def post(self,request):
         print("nanda")
         Name=request.POST.get('Name')
-        Letter=request.FILES['Letter']
-        fs=FileSystemStorage()
-        name=fs.save(Letter.name,Letter)
-        url=fs.url(name)
+        try:
+            Letter=request.FILES['Letter']
+            fs=FileSystemStorage()
+            name=fs.save(Letter.name,Letter)
+            url=fs.url(name)
+        except:
+            Letter=None
+        rfd=request.POST.get('rfd')
+        
+        
+        
         Email=request.session['Email']
-        offer=Offerletter(Letter=Letter,Name=Name,Email=Email)
+        offer=Offerletter(Letter=Letter,Name=Name,Email=Email,rfd=rfd)
+
+        track=Offerletter.objects.all().filter(Name=Name).get(Email=Email)
+        if(track):
+            track.delete()
+
         offer.register()
 
         stddetail=Stdappli.objects.filter(stdname=Name).get(univmail=request.session['Email'])
         print(Name)
         print(stddetail)
-        
-        stddetail.status="accept"
-        stddetail.register()
+        if(Letter!=None):
+            stddetail.status="accept"
+            stddetail.register()
         return redirect('/applicants')
 
 def stu_reject(request,name="a"):
@@ -76,9 +88,10 @@ def home(request):
     data['couper']=couper
     return render(request,'home_content.html',data)
 def table(request):
-    stddetail=Stdappli.objects.filter(univmail=request.session['Email'])
+    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(pstatus="succeeded")
     data={}
     data['stddetail']=stddetail
+    
     return render(request,'All_Applications.html',data)
 class overview(View):
     def get(self,request,name="a"):
@@ -180,17 +193,17 @@ def security(request):
     return render(request,'Security.html')
 
 def newapplication(request):
-    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="accept")
+    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="accept").filter(pstatus="succeeded")
     data={}
     data['stddetail']=stddetail
     return render(request,'NewApplications.html',data)
 def inprogressapplication(request):
-    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="applied")
+    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="applied").filter(pstatus="succeeded")
     data={}
     data['stddetail']=stddetail
     return render(request,'InProgressApplication.html',data)
 def rejectedapplication(request):
-    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="reject")
+    stddetail=Stdappli.objects.filter(univmail=request.session['Email']).filter(status="reject").filter(pstatus="succeeded")
     data={}
     data['stddetail']=stddetail
     return render(request,'RejectedApplication.html',data)

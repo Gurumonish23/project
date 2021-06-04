@@ -69,9 +69,12 @@
                                                     <th> Nationality </th>
                                                     <th> Intake </th>
                                                     <th>Application Date</th>
-                                                    
                                                     <th> Status </th>
+                                                    <th> Enrollment Status </th>
                                                     <th>Action</th>
+
+                                                    <th>Requested Doc</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -91,7 +94,8 @@
                                                         <td class="left">{{i.date}}</td>
                                 
                                                         <td>{{i.status}}</td>
-                                                        </td>
+                                                        <td>{{i.enroll}}</td>
+                                                        
                                                                         {% if request.session.Emailemp == None %}
                                                                             <td>
 																			<a href="student/application/{{i.stdname}}/accept"
@@ -107,7 +111,7 @@
 																		</td>
                                                                         {% endif %}
 
-                                                                        
+                                                            <td> <a href="media/{{i.rfdfile}}">{{i.rfdfile}}</a></td>              
                                                 </tr>
                                                 {% endfor %}
                                             </tbody>

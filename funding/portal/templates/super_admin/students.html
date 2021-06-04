@@ -51,6 +51,8 @@
                                                     <th> Status </th>
                                                     <th> Courses </th>
                                                     <th> Payment status</th>
+                                                    <th> Enrollment status </th>
+                                                    <th> Enrollment action </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -70,6 +72,19 @@
                                                     </td>
                                                     <td>{{i.Coursename}}</td>
                                                     <td> {{i.pstatus}}</td>
+                                                    <td> {{i.enroll}}</td>
+                                                    <td>
+                                                        <a href="/admin/enrollstatus/enroll/{{i.stdmail}}/{{i.univmail}}"
+                                                            class="btn btn-primary btn-xs">
+                                                            <i class="fa fa-check"></i>
+                                                        </a>
+                                                        <a href="/admin/enrollstatus/unenroll/{{i.stdmail}}/{{i.univmail}}" 
+                                                        class="btn btn-danger btn-xs"
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target=""> 
+                                                        <i class="fa fa-times"></i>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                                 
                                                 

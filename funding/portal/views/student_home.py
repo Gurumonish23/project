@@ -8,6 +8,9 @@ from portal.models.studentinfo import Student
 from portal.models.courses import Courses
 from portal.models.stdappli import Stdappli
 from datetime import date
+
+from django.core.files.storage import FileSystemStorage
+
 from portal.models.offer import Offerletter
 from django.views import View
 def stu_saved(request):
@@ -133,11 +136,31 @@ def preference(request):
 def course_overview(request):
     return render(request,'student_portal/Course_Overview.html')
 def progressbar(request,name="a"):
+    print(name)
+    if(request.method=="POST"):
+        print(name)
+        Letter=request.FILES['rfd']
+        fs=FileSystemStorage()
+        name1=fs.save(Letter.name,Letter)
+        url=fs.url(name1)
+        print(request.session['Email1'])
+        stddetail=Stdappli.objects.filter(stdmail=request.session['Email1']).get(univname=name)
+        print(stddetail)
+
+        stddetail.rfdfile=Letter
+        stddetail.register()
+
+        return redirect('stdhome')
+
+
     if(name!='a'):
         today = date.today()
         stddetail=Stdappli.objects.filter(stdmail=request.session['Email1']).get(univname=name)
         offer=Offerletter.objects.filter(Email=stddetail.univmail).get(Name=request.session['Firstname1'])
+        rfd=offer.rfd
         data=offer.Letter
+        if(rfd!=None):
+            rfd1=rfd
         if(stddetail.status=="accept"):
             d2 = today.strftime("%B %d, %Y")
             ans=100
@@ -151,5 +174,6 @@ def progressbar(request,name="a"):
             ans=30
             a="Application initiated"
         a=a.split(",")      
-        return render(request,'student_portal/Progressbar.html',{'ans':ans,'univname':name,'a':a,'d2':d2,'data':data})
+        return render(request,'student_portal/Progressbar.html',{'uniname':name,'rfd':rfd1,'ans':ans,'univname':name,'a':a,'d2':d2,'data':data})
+    
 

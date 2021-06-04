@@ -127,6 +127,21 @@ class Settings(View):
             data={'Phonenumber':super1.Phonenumber,'Email':super1.Email}
             data['error']=error_message
         return render(request,'super_admin/settings.html',data)
+
+
+def enroll(request,status="a",stdmail="b",univmail="c"):
+    if(status=="enroll"):
+        stddetail=Stdappli.objects.all().filter(stdmail=stdmail).get(univmail=univmail)
+        stddetail.enroll="Enrolled"
+        stddetail.register()
+    if(status=="unenroll"):
+        stddetail=Stdappli.objects.all().filter(stdmail=stdmail).get(univmail=univmail)
+        stddetail.enroll="Un-Enrolled"
+        stddetail.register()
+
+    return redirect('adminstdhome')
+
+
 def students(request):
     stddetail=Stdappli.objects.all()
     data={}
