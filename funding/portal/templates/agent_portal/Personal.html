@@ -46,7 +46,7 @@
               <input
                 class="mdl-textfield__input"
                 type="text"
-                id="txtFirstName" name="Firstname" value="{{value.Firstname}}"
+                id="txtFirstName" name="Firstname" value="{{value.Firstname}}" required
               />
               <label class="mdl-textfield__label">First name</label>
             </div>
@@ -55,7 +55,7 @@
             <div
               class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
             >
-              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Lastname" value="{{value.Lastname}}"/>
+              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Lastname" value="{{value.Lastname}}" required/>
               <label class="mdl-textfield__label">Last Name</label>
             </div>
           </div>
@@ -70,6 +70,7 @@
                 value="{{value.Gender}}"
                 readonly
                 tabindex="-1" name="Gender"
+                required
               />
               <label for="list2" class="pull-right margin-0">
                 <i class="mdl-icon-toggle__label material-icons"
@@ -94,7 +95,7 @@
               <input
                 class="mdl-textfield__input"
                 type="text"
-                id="txtLasttName" name="Nationality" value="{{value.Nationality}}"
+                id="txtLasttName" name="Nationality" value="{{value.Nationality}}" required
               />
               <label class="mdl-textfield__label">Nationality</label>
             </div>
@@ -111,7 +112,7 @@
                 placeholder="{{value.Maritial}}"
                 readonly
                 tabindex="-1"
-                name="Maritial" value="{{value.Maritial}}"
+                name="Maritial" value="{{value.Maritial}}" required
               />
               <label for="list1" class="pull-right margin-0">
                 <i class="mdl-icon-toggle__label material-icons"
@@ -138,7 +139,7 @@
               <input
                 class="mdl-textfield__input"
                 type="email"
-                id="txtLasttName" name="Email" value="{{value.Email}}"
+                id="txtLasttName" name="Email" value="{{value.Email}}" required
               />
               <label class="mdl-textfield__label">Email</label>
             </div>
@@ -151,7 +152,7 @@
                 class="mdl-textfield__input"
                 type="tel"
                 id="phone" name="Phonenumber" value="{{value.Phonenumber}}" style="width: 100%;"
-                placeholder="Enter phone number"
+                placeholder="Enter phone number" required
               />
               <label class="mdl-textfield__label" style="margin-top: -25px;">phone</label>
             </div>
@@ -160,7 +161,7 @@
           
           <div class="col-lg-6 p-t-20">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-						<input class="mdl-textfield__input" type="text" id="date" name="Dateofbirth" value="{{value.Dateofbirth}}">
+						<input class="mdl-textfield__input" type="text" id="date" name="Dateofbirth" value="{{value.Dateofbirth}}" required>
 						<label class="mdl-textfield__label">Date of Birth</label>
 						</div>
           </div>
@@ -171,7 +172,7 @@
               <input
                 class="mdl-textfield__input"
                 type="text"
-                id="txtLasttName" name="Address" value="{{value.Address}}"
+                id="txtLasttName" name="Address" value="{{value.Address}}" required
               />
               <label class="mdl-textfield__label">Address</label>
             </div>
@@ -185,7 +186,7 @@
             <input
               class="mdl-textfield__input"
               type="text"
-              id="txtLasttName" name="Country" value="{{value.Country}}"
+              id="txtLasttName" name="Country" value="{{value.Country}}" required
             />
             <label class="mdl-textfield__label">Country</label>
           </div>
@@ -203,7 +204,7 @@
               <input
                 class="mdl-textfield__input"
                 type="text"
-                id="txtLasttName"  name="State" value="{{value.State}}"
+                id="txtLasttName"  name="State" value="{{value.State}}" required
               />
               <label class="mdl-textfield__label">State</label>
             </div>
@@ -219,7 +220,7 @@
     <input
       class="mdl-textfield__input"
       type="text"
-      id="txtLasttName" name="City" value="{{value.City}}"
+      id="txtLasttName" name="City" value="{{value.City}}" required
     />
     <label class="mdl-textfield__label">City</label>
   </div>

@@ -43,6 +43,10 @@ class savedcourses(View):
     def get(self,request,name="a",name1="b"):
         if(name=="a"):
             saved=Courses.objects.filter(Email=request.session['Email'])
+            if(saved.count()==0):
+                data={}
+                data['text']="Haven't Add any Courses"
+                return render(request,'CourseCards.html',data)
             print("guru")
             #print(saved)
             data={'saved':saved}

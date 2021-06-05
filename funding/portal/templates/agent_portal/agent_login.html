@@ -202,7 +202,7 @@
                                     <div class="login-field-wrapper">
                                         <form action="university" method="post" id="flyoutform" name="flyoutform">
                                             <div class="form-field">
-                                                <h3>Username</h3>
+                                                <h3>Usermail</h3>
                                                 <div class="field-container">
                                                     <div class="ui-textinput">
                                                         <input id = "txtflyooutMembershipNumber" name="txtflyooutMembershipNumber" type="text">
@@ -275,7 +275,7 @@
                                 <label>Username</label>
                                 <div class="field-container">
                                     <div class="ui-textinput">
-                                        <input data-val="true" data-val-required="The MembershipNumber field is required." id="LoginModel_MembershipNumber" name="Email" type="text" value="" />
+                                        <input data-val="true" data-val-required="The MembershipNumber field is required." id="LoginModel_MembershipNumber" name="Email" type="text" value="" required />
 
                                     </div>
                                 </div><span class="error-message"><span class="field-validation-valid" data-valmsg-for="LoginModel.MembershipNumber" data-valmsg-replace="false">Membership Number is a required field, consisting of only numerical digits.</span></span>
@@ -284,7 +284,7 @@
                                 <label>Password</label>
                                 <div class="field-container">
                                     <div class="ui-textinput">
-                                        <input autocapitalize="none" data-val="true" data-val-required="The Password field is required." id="LoginModel_Password" name="Password" type="password" />
+                                        <input autocapitalize="none" data-val="true" data-val-required="The Password field is required." id="LoginModel_Password" name="Password" type="password" required />
 
                                     </div>
                                 </div><span class="error-message"><span class="field-validation-valid" data-valmsg-for="LoginModel.Password" data-valmsg-replace="false">Password is required</span></span><a href="/emailvalidagent" target="_blank" title="Forgot Password?" class="forgot-password">Forgot Password?</a>
@@ -292,6 +292,14 @@
                             <div class="form-field">
                                 <div class="g-recaptcha" data-sitekey="6Ldz2mUaAAAAAIhw5dLxAJKpTsu6hwTavOd2Zsvv"></div>
                             </div>
+                            <div class="">
+                                {% if error %}
+                                <div class="alert alert-warning" role="alert">
+                                    <p>{{error}}</p>
+                                </div>
+                                {% endif %}
+                        
+                        </div>
                             <div class="form-cta">
                                 <input value="Log In" type="submit" class="button-primary">
                             </div>

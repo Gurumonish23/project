@@ -33,8 +33,11 @@ class stu_accept(View):
         
         Email=request.session['Email']
         offer=Offerletter(Letter=Letter,Name=Name,Email=Email,rfd=rfd)
+        try:
 
-        track=Offerletter.objects.all().filter(Name=Name).get(Email=Email)
+            track=Offerletter.objects.all().filter(Name=Name).get(Email=Email)
+        except:
+            track=False
         if(track):
             track.delete()
 
@@ -118,6 +121,10 @@ class events(View):
     def get(self,request,name="a",name1="b"):
         if(name=="a"):
             savedevents=Event.objects.filter(Email=request.session['Email'])
+            if(savedevents.count()==0):
+                data={}
+                data['text']="Haven't Add any Events"
+                return render(request,'Events.html',data)
             data={'listeve':savedevents}
             return render(request,'Events.html',data)
         elif(name1=="delete"):
@@ -166,6 +173,10 @@ class allblog(View):
     def get(self,request,name="a",name1="b"):
         if(name=="a"):
             savedblogs=Blog.objects.filter(Email=request.session['Email'])
+            if(savedblogs.count()==0):
+                data={}
+                data['text']="Haven't Add any Blogs"
+                return render(request,'AllBlogs.html',data)
             data={'listblo':savedblogs}
             return render(request,'AllBlogs.html',data)
         elif(name1=="delete"):

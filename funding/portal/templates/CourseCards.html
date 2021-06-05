@@ -19,6 +19,9 @@
 </div>
 
 <div class="row">
+    {% if text %}
+  <center><h1 style="color:blue">{{text}}<h1></center>
+  {% endif %}
     {% for i in saved %}
     <div class="col-lg-4">
         

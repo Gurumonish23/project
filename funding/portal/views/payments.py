@@ -46,7 +46,11 @@ def charge(request,name="a",name1='b'):
         stdappli.save()
         value={}
         value['status']=charge.status
-
+        try:
+            if(request.session['email2']):
+                value['path']="/agent/home"
+        except:
+            value['path']="/student/home"
         return render(request,'charge.html',{'value':value})
        
 

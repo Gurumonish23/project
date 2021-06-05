@@ -335,6 +335,10 @@ class stdsaved(View):
     def get(self,request,name="a"):
         if(name=="a"):
             saved_univ=Saved.objects.filter(Mail=request.session['Email1'])
+            if(saved_univ.count()==0):
+                data={}
+                data['text']="Haven't Go Through Any Universities Pls Have a Look In University Tab"
+                return render(request,'student_portal/saved.html',data)
             print('rohit')
             print(saved_univ)
             data={}
@@ -502,6 +506,8 @@ class stdapplicour(View):
         fee=application1.Applyfee
         value['cour']=cour
         value['fee']=fee
+        if(name2!="c"):
+            return render(request,'agent_portal/selectcourse.html',{'value':value})
 
         return render(request,'student_portal/course.html',{'value':value})
     def post(self,request,name="a",name1="b",name2="c"):
@@ -556,6 +562,8 @@ class stdapplicour(View):
         'date':date,'program':program,'status':status,'agentmail':name2,'Coursename':coursename,'fee':fee}
         
         #return redirect('/student/applied')
+        if(name2!="c"):
+            return render(request,'agent_portal/selectcourse.html',{'value':value})
         return render(request,'student_portal/course.html',{'value':value})
 
 
