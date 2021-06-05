@@ -46,18 +46,18 @@
             {% for record in stdpro %} 
           <div class="col-lg-6 p-t-20">
             {% if record.Testeng == '1' %}
-                        <input checked type="checkbox" name="Testeng[]" value="1" />
+                        <input checked type="checkbox" name="Testeng[]" value="1" required />
                         <label>IELTS</label>
-                        <input  type="checkbox" name="Testeng[]" value="2" />
+                        <input  type="checkbox" name="Testeng[]" value="2" required/>
                         <label>TOEFL</label>
                         {% elif record.Testeng == '2' %}
-                        <input  type="checkbox" name="Testeng[]" value="1" />
+                        <input  type="checkbox" name="Testeng[]" value="1" required/>
                         <label>IELTS</label>
-                        <input checked type="checkbox" name="Testeng[]" value="2" />
+                        <input checked type="checkbox" name="Testeng[]" value="2" required/>
                         <label>TOEFL</label>
                         {% else %}
-                        <input  type="checkbox" name="Testeng[]" value="1" />
-                        <input  type="checkbox" name="Testeng[]" value="2" />
+                        <input  type="checkbox" name="Testeng[]" value="1" required/>
+                        <input  type="checkbox" name="Testeng[]" value="2" required/>
                         <label>IELTS</label>
                         <label>TOEFL</label>
                         {% endif %}
@@ -109,19 +109,19 @@
           {% for record in stdpro1 %}
           <div class="col-lg-6 p-t-20">
                   {% if record.Testad == '1' %}
-                        <input checked type="checkbox" name="Testad[]" value=" 1" />
+                        <input checked type="checkbox" name="Testad[]" value=" 1" required/>
                         <label>GMAT</label>
-                        <input type="checkbox" name="Testad[]" value="2" />
+                        <input type="checkbox" name="Testad[]" value="2" required/>
                         <label>GRE</label>
                   {% elif record.Testad == '2' %}
-                  <input  type="checkbox" name="Testad[]" value=" 1" />
+                  <input  type="checkbox" name="Testad[]" value=" 1" required/>
                   <label>GMAT</label>
-                  <input checked type="checkbox" name="Testad[]" value="2" />
+                  <input checked type="checkbox" name="Testad[]" value="2" required/>
                   <label>GRE</label>
                   {% else %}
-                  <input  type="checkbox" name="Testad[]" value=" 1" />
+                  <input  type="checkbox" name="Testad[]" value=" 1" required/>
                   <label>GMAT</label>
-                  <input  type="checkbox" name="Testad[]" value="2" />
+                  <input  type="checkbox" name="Testad[]" value="2" required/>
                   <label>GRE</label>
                   {% endif %}
 
@@ -130,7 +130,7 @@
             <div
               class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
             >
-              <input class="mdl-textfield__input" type="text" id="date" name="Yearad[]" value="{{record.Yearad}}" />
+              <input class="mdl-textfield__input" type="text" id="date" name="Yearad[]" value="{{record.Yearad}}" required/>
               <label class="mdl-textfield__label">Year Taken</label>
             </div>
           </div>
@@ -138,7 +138,7 @@
             <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
           >
-            <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Overallscoread[]" value="{{record.Overallscoread}}"/>
+            <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Overallscoread[]" value="{{record.Overallscoread}}" required/>
             <label class="mdl-textfield__label">Overall Score</label>
           </div>
           </div>
@@ -150,7 +150,7 @@
                 class="mdl-textfield__input"
                 type="file"
                 id="txtLasttName"
-                name="Uploadad[]" value="{{value.Uploadad}}"
+                name="Uploadad[]" value="{{value.Uploadad}}" required
               />
               <a href="media/record.Uploadad">{{record.Uploadad}}</a>
               <label class="mdl-textfield__label"></label>

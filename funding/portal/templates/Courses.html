@@ -40,14 +40,14 @@
                 
                 <div class="col-lg-6 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="txtFirstName" name="Name" value="{{value.Name}}" >
+                        <input class="mdl-textfield__input" type="text" id="txtFirstName" name="Name" value="{{value.Name}}" required>
                         <label class="mdl-textfield__label"><span>Course Name</span></label>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="course"  tabIndex="-1" name="Type" value="{{value.Type}}">
+                        <input class="mdl-textfield__input" type="text" id="course"  tabIndex="-1" name="Type" value="{{value.Type}}" required>
                         <label for="course" class="pull-right margin-0">
                             <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                         </label>
@@ -61,7 +61,7 @@
                 <div class="col-lg-6 p-t-20">
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="dept"  tabIndex="-1" name="Depname" value="{{value.Depname}}">
+                        <input class="mdl-textfield__input" type="text" id="dept"  tabIndex="-1" name="Depname" value="{{value.Depname}}" required>
                         <label for="dept" class="pull-right margin-0">
                             <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                         </label>
@@ -74,13 +74,13 @@
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="date" name="Courseapp" value="{{value.Courseapp}}">
+                        <input class="mdl-textfield__input" type="text" id="date" name="Courseapp" value="{{value.Courseapp}}" required>
                         <label class="mdl-textfield__label">Course Approval Date</label>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="txtPwd" name="Appauth" value="{{value.Appauth}}">
+                        <input class="mdl-textfield__input" type="text" id="txtPwd" name="Appauth" value="{{value.Appauth}}" required>
                         <label class="mdl-textfield__label">Approval Authority</label>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                 <div class="col-lg-6 p-t-20">
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="currency" name="Curr" readonly tabIndex="-1" value="{{value.Curr}}">
+                        <input class="mdl-textfield__input" type="text" id="currency" name="Curr" readonly tabIndex="-1" value="{{value.Curr}}" required>
                         <label for="currency" class="pull-right margin-0">
                             <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                         </label>
@@ -101,14 +101,14 @@
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" name="Amo" id="designation" value="{{value.Amo}}">
+                        <input class="mdl-textfield__input" type="text" name="Amo" id="designation" value="{{value.Amo}}" required>
                         <label class="mdl-textfield__label">Amount</label>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="duration" tabIndex="-1" name="Dur" value="{{value.Dur}}"> 
+                        <input class="mdl-textfield__input" type="text" id="duration" tabIndex="-1" name="Dur" value="{{value.Dur}}" required> 
                         <label for="duration" class="pull-right margin-0">
                             <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                         </label>
@@ -125,7 +125,7 @@
                 <div class="col-lg-6 p-t-20">
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="sample2" name="Sem" readonly tabIndex="-1" value="{{value.Sem}}">
+                        <input class="mdl-textfield__input" type="text" id="sample2" name="Sem" readonly tabIndex="-1" value="{{value.Sem}}" required>
                         <label for="sample2" class="pull-right margin-0">
                             <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                         </label>
@@ -144,7 +144,7 @@
 
                 <div class="col-lg-12 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield txt-full-width">
-                        <input class="mdl-textfield__input" rows="4" id="text7" type="text"  name="Couover" value="{{value.Couover}}">
+                        <input class="mdl-textfield__input" rows="4" id="text7" type="text"  name="Couover" value="{{value.Couover}}" required>
                         <label class="mdl-textfield__label" for="text7">Course Overview</label>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                         <label class="pull-right margin-0" >
                             <i class="mdl-icon-toggle__label material-icons addsem1">add_box</i>
                         </label>
-                        <input class="mdl-textfield__input" type="text" id="designation" name="Sem1[]" value={{i}} value="{{value.Sem1}}">
+                        <input class="mdl-textfield__input" type="text" id="designation" name="Sem1[]" value={{i}} value="{{value.Sem1}}" required>
                         <label class="mdl-textfield__label">Semester 1</label>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
                         <label class="pull-right margin-0" >
                             <i class="mdl-icon-toggle__label material-icons addsem1">add_box</i>
                         </label>
-                        <input class="mdl-textfield__input" type="text" id="designation" name="Sem1[]">
+                        <input class="mdl-textfield__input" type="text" id="designation" name="Sem1[]" required>
                         <label class="mdl-textfield__label">Semester 1</label>
                     </div>
                 </div>
@@ -179,7 +179,7 @@
                         <label class="pull-right margin-0">
                             <i class="mdl-icon-toggle__label material-icons addsem2" >add_box</i>
                         </label>
-                        <input class="mdl-textfield__input" type="text" id="designation" name="Sem2[]" value={{i}}>
+                        <input class="mdl-textfield__input" type="text" id="designation" name="Sem2[]" value={{i}} required>
                         <label class="mdl-textfield__label">Semester 2</label>
 
                     </div>
@@ -191,7 +191,7 @@
                         <label class="pull-right margin-0">
                             <i class="mdl-icon-toggle__label material-icons addsem2" >add_box</i>
                         </label>
-                        <input class="mdl-textfield__input" type="text" id="designation" name="Sem2[]">
+                        <input class="mdl-textfield__input" type="text" id="designation" name="Sem2[]" required>
                         <label class="mdl-textfield__label">Semester 2</label>
 
                     </div>
@@ -210,7 +210,7 @@
                         <label class="pull-right margin-0">
                             <i class="mdl-icon-toggle__label material-icons" id="add">add_box</i>
                         </label>
-                        <input class="mdl-textfield__input" type="text" id="designation" name="Cri[]" value="{{i}}">
+                        <input class="mdl-textfield__input" type="text" id="designation" name="Cri[]" value="{{i}}" required>
                         <label class="mdl-textfield__label">Criteria's</label>
 
                     </div>
@@ -223,7 +223,7 @@
                         <label class="pull-right margin-0">
                             <i class="mdl-icon-toggle__label material-icons" id="add">add_box</i>
                         </label>
-                        <input class="mdl-textfield__input" type="text" id="designation" name="Cri[]">
+                        <input class="mdl-textfield__input" type="text" id="designation" name="Cri[]" required>
                         <label class="mdl-textfield__label">Criteria's</label>
 
                     </div>
