@@ -231,17 +231,17 @@ urlpatterns=[
     #super_admin
 
     
-    path('admin/home',Home,name="adminhome"),
-    path('admin/courses',Courses,name="home"),
-    path('admin/settings',Settings.as_view(),name="home"),
-    path('admin/universities',universities,name="home"),
-    path('admin/students',students,name="adminstdhome"),
-    path('admin/agent',agent,name="home"),
-    path('admin/commision',commision.as_view(),name="commision"),
-    path('admin/addcommision/<str:name>',addcommision.as_view(),name="addcommision"),
-    path('agent/viewcommision',viewcommision.as_view(),name="viewcommision"),
-    path('admin/addemployee',addemployee.as_view(),name="addemployee"),
-    path('admin/enrollstatus/<str:status>/<str:stdmail>/<str:univmail>',enroll,name="enroll"),
+    path('admin1/home',Home,name="adminhome"),
+    path('admin1/courses',Courses,name="home"),
+    path('admin1/settings',Settings.as_view(),name="home"),
+    path('admin1/universities',universities,name="home"),
+    path('admin1/students',students,name="adminstdhome"),
+    path('admin1/agent',agent,name="home"),
+    path('admin1/commision',commision.as_view(),name="commision"),
+    path('admin1/addcommision/<str:name>',addcommision.as_view(),name="addcommision"),
+    path('agent1/viewcommision',viewcommision.as_view(),name="viewcommision"),
+    path('admin1/addemployee',addemployee.as_view(),name="addemployee"),
+    path('admin1/enrollstatus/<str:status>/<str:stdmail>/<str:univmail>',enroll,name="enroll"),
     
 
     path('adminlogout',adminlogout,name='adminlogout'),

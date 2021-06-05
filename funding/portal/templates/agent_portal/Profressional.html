@@ -60,7 +60,7 @@
           <div class="col-lg-6 p-t-20">
             <div
               class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-              <input class="mdl-textfield__input" type="text" id="date" name="Yeareng[]" value="{{record.Yeareng}}"/>
+              <input class="mdl-textfield__input" type="text" id="date" name="Yeareng[]" value="{{record.Yeareng}}" required/>
               <label class="mdl-textfield__label">Year taken</label>
             </div>
           </div>
@@ -68,7 +68,7 @@
             <div
               class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
             >
-              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Overallscoreeng[]" value="{{record.Overallscoreeng}}"/>
+              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Overallscoreeng[]" value="{{record.Overallscoreeng}}" required/>
               <label class="mdl-textfield__label">Overall Score</label>
             </div>
           </div>
@@ -81,6 +81,7 @@
                 type="file"
                 id="txtLasttName"
                 name="Uploadeng[]" 
+                required
               />
               <a href="media/record.Uploadeng">{{record.Uploadeng}}</a>
               <label class="mdl-textfield__label"></label>
@@ -124,7 +125,7 @@
             <div
               class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
             >
-              <input class="mdl-textfield__input" type="text" id="date" name="Yearad[]" value="{{record.Yearad}}" />
+              <input class="mdl-textfield__input" type="text" id="date" name="Yearad[]" value="{{record.Yearad}}" required/>
               <label class="mdl-textfield__label">Year Taken</label>
             </div>
           </div>
@@ -132,7 +133,7 @@
             <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
           >
-            <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Overallscoread[]" value="{{record.Overallscoread}}"/>
+            <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Overallscoread[]" value="{{record.Overallscoread}}" required/>
             <label class="mdl-textfield__label">Overall Score</label>
           </div>
           </div>
@@ -144,7 +145,7 @@
                 class="mdl-textfield__input"
                 type="file"
                 id="txtLasttName"
-                name="Uploadad[]" value="{{value.Uploadad}}"
+                name="Uploadad[]" value="{{value.Uploadad}}" required
               />
               <a href="media/record.Uploadad">{{record.Uploadad}}</a>
               <label class="mdl-textfield__label"></label>

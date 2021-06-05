@@ -332,7 +332,7 @@ class Consultbank(View):
         try:
             cons=Consultancydetails.objects.get(Email=request.session['Email2'])
             print(cons)
-            value={'Cname': cons.Cname, 'Aid':cons.Aid,'Aadd':cons.Aadd,'Email':cons.Email,
+            value={'Cname': cons.Cname, 'Aid':cons.Aid,'Aadd':cons.Aadd,'Email':cons.Email,'Rno':cons.Rno,'Rbody':cons.Rbody,
                 'Bname':cons.Bname,'Accountnumber':cons.Accountnumber,'Branch':cons.Branch,'Ifsccode':cons.Ifsccode}
         except:
             pass
@@ -341,6 +341,8 @@ class Consultbank(View):
         Cname= request.POST.get('Cname')
         Aid=request.session['agentid']
         Aadd=request.POST.get('Aadd')
+        Rno=request.POST.get('Rno')
+        Rbody=request.POST.get('Rbody')
         Email=request.session['Email2']
         Bname=request.POST.get('Bname')
         Accountnumber=request.POST.get('Accountnumber')
@@ -350,7 +352,7 @@ class Consultbank(View):
         cons1=Consultancydetails.objects.all().filter(Email=request.session['Email2'])
     
         cons=Consultancydetails(Cname= Cname, Aid=Aid,Aadd=Aadd,Email=Email,
-              Bname=Bname,Accountnumber=Accountnumber,Branch=Branch,Ifsccode=Ifsccode   )
+              Bname=Bname,Accountnumber=Accountnumber,Branch=Branch,Ifsccode=Ifsccode,Rno=Rno,Rbody=Rbody )
         if(cons1):
             cons1.delete()
         cons.register()

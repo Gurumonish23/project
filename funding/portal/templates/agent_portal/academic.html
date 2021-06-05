@@ -35,9 +35,10 @@
                 class="mdl-textfield__input"
                 type="text"
                 id="list3"
+                
 
                 readonly
-                tabindex="-1" name="Sscqual" value="{{value.Sscqual}}"
+                tabindex="-1" name="Sscqual" value="{{value.Sscqual}}" required
               />
               <label for="list3" class="pull-right margin-0">
                 <i class="mdl-icon-toggle__label material-icons"
@@ -58,7 +59,7 @@
           <div class="col-lg-6 p-t-20">
             <div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="date" name="Sscdate" value="{{value.Sscdate}}">
+											<input class="mdl-textfield__input" type="text" id="date" name="Sscdate" value="{{value.Sscdate}}" required>
 											<label class="mdl-textfield__label">Date of Completion</label>
 										</div>
           </div>
@@ -66,7 +67,7 @@
            <div
               class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
             >
-              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Sscname" value="{{value.Sscname}}"/>
+              <input  class="mdl-textfield__input" type="text" id="txtRollNo" name="Sscname" value="{{value.Sscname}}" required />
               <label class="mdl-textfield__label">Name of the School</label>
             </div>
           </div>
@@ -74,7 +75,7 @@
             <div
               class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
             >
-              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Sscmarks" value="{{value.Sscmarks}}" />
+              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Sscmarks" value="{{value.Sscmarks}}" required />
               <label class="mdl-textfield__label">Marks Obtained</label>
             </div>
           </div>
@@ -88,7 +89,7 @@
                 id="list3000"
 
                 readonly
-                tabindex="-1" name="Sscgrading" value="{{value.Sscgrading}}"
+                tabindex="-1" name="Sscgrading" value="{{value.Sscgrading}} " required
               />
               <label for="list3000" class="pull-right margin-0">
                 <i class="mdl-icon-toggle__label material-icons"
@@ -113,7 +114,7 @@
               <input
                 class="mdl-textfield__input"
                 type="file"
-                id="SscDoc" name="SscDoc" value=" media/{{value.SscDoc}}"
+                id="SscDoc" name="SscDoc" value=" media/{{value.SscDoc}}" required
                  />
                  <a href="media/{{value.SscDoc}}">{{value.SscDoc}}</a>
               <label class="mdl-textfield__label"></label>
@@ -131,7 +132,7 @@
                 type="text"
                 id="list5"
                 readonly
-                tabindex="-1" name="Intqual" value="{{value.Intqual}}"
+                tabindex="-1" name="Intqual" value="{{value.Intqual}}" required
               />
               <label for="list5" class="pull-right margin-0">
                 <i class="mdl-icon-toggle__label material-icons"
@@ -151,7 +152,7 @@
           <div class="col-lg-6 p-t-20">
             <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-            <input class="mdl-textfield__input" type="text" id="date" name="Intdate" value="{{value.Intdate}}">
+            <input class="mdl-textfield__input" type="text" id="date" name="Intdate" value="{{value.Intdate}}" required>
             <label class="mdl-textfield__label">Date of Completion</label>
           </div>
           </div>
@@ -159,7 +160,7 @@
            <div
               class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
             >
-              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Intname" value="{{value.Intname}}" />
+              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Intname" value="{{value.Intname}}" required/>
               <label class="mdl-textfield__label">Name of the School</label>
             </div>
           </div>
@@ -167,7 +168,7 @@
             <div
               class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
             >
-              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Intmarks" value="{{value.Intmarks}}" />
+              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Intmarks" value="{{value.Intmarks}}" required />
               <label class="mdl-textfield__label">Marks Obtained</label>
             </div>
           </div>
@@ -180,7 +181,7 @@
                 type="text"
                 id="list101"
                 readonly
-                tabindex="-1" name="Intgrading" value="{{value.Intgrading}}"
+                tabindex="-1" name="Intgrading" value="{{value.Intgrading}}" required
               />
               <label for="list101" class="pull-right margin-0">
                 <i class="mdl-icon-toggle__label material-icons"
@@ -204,7 +205,7 @@
               <input
                 class="mdl-textfield__input"
                 type="file"
-                id="txtLasttName" name="IntDoc" value="{{value.IntDoc}}"
+                id="txtLasttName" name="IntDoc" value="{{value.IntDoc}}" required
               />
               <a href="media/{{value.IntDoc}}">{{value.IntDoc}}</a>
               <label class="mdl-textfield__label"></label>
@@ -222,7 +223,7 @@
                 type="text"
                 id="list121"
                 readonly
-                tabindex="-1" name="Uniqual" value="{{value.Uniqual}}"
+                tabindex="-1" name="Uniqual" value="{{value.Uniqual}}" required
               />
               <label for="list121" class="pull-right margin-0">
                 <i class="mdl-icon-toggle__label material-icons"
@@ -242,7 +243,7 @@
           <div class="col-lg-6 p-t-20">
             <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-            <input class="mdl-textfield__input" type="text" id="date" name="Unidate" value="{{value.Unidate}}">
+            <input class="mdl-textfield__input" type="text" id="date" name="Unidate" value="{{value.Unidate}}" required> 
             <label class="mdl-textfield__label">Date of Completion</label>
           </div>
           </div>
@@ -250,7 +251,7 @@
            <div
               class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
             >
-              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Uniname" value="{{value.Uniname}}" />
+              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Uniname" value="{{value.Uniname}}" required/>
               <label class="mdl-textfield__label">Name of the School</label>
             </div>
           </div>
@@ -258,7 +259,7 @@
             <div
               class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"
             >
-              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Unimarks" value="{{value.Unimarks}}"/>
+              <input class="mdl-textfield__input" type="text" id="txtRollNo" name="Unimarks" value="{{value.Unimarks}}" required/>
               <label class="mdl-textfield__label">Marks Obtained</label>
             </div>
           </div>
@@ -271,7 +272,7 @@
                 type="text"
                 id="list200"
                 readonly
-                tabindex="-1" name="Unigrading" value="{{value.Unigrading}}"
+                tabindex="-1" name="Unigrading" value="{{value.Unigrading}} " required
               />
               <label for="list200" class="pull-right margin-0">
                 <i class="mdl-icon-toggle__label material-icons"
@@ -295,7 +296,7 @@
               <input
                 class="mdl-textfield__input"
                 type="file"
-                id="txtLasttName" name="UniDoc" value="{{value.UniDoc}}"
+                id="txtLasttName" name="UniDoc" value="{{value.UniDoc}}" required
               />
               <a href="media/{{value.UniDoc}}">{{value.UniDoc}}</a>
               <label class="mdl-textfield__label"></label>
@@ -308,7 +309,7 @@
               <input
                 class="mdl-textfield__input"
                 type="text"
-                id="txtLasttName" name="Unicname" value="{{value.Unicname}}"
+                id="txtLasttName" name="Unicname" value="{{value.Unicname}}" required
               />
               <label class="mdl-textfield__label">Course Name </label>
             </div>
