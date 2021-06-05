@@ -110,7 +110,7 @@
                                     <div class="login-field-wrapper">
                                         <form action="university" method="post" id="flyoutform" name="flyoutform">
                                             <div class="form-field">
-                                                <h3>Username</h3>
+                                                <h3>Usermail</h3>
                                                 <div class="field-container">
                                                     <div class="ui-textinput">
                                                         <input id = "txtflyooutMembershipNumber" name="txtflyooutMembershipNumber" type="text">
@@ -128,6 +128,14 @@
                                                 <span class="error-message">Password is required</span>
                                                 
                                             </div>
+                                            <div class="">
+                                                {% if error %}
+                                                <div class="alert alert-warning" role="alert">
+                                                    <p>{{error}}</p>
+                                                </div>
+                                                {% endif %}
+                                        
+                                        </div>
                                             <div class="submit-container">
                                                 <input value = "Log In" type="submit" class="button-primary">
                                             </div>
@@ -224,7 +232,7 @@
                     <div class="col-lg-12 col-md-3">
                         <div class="table-from-gc">
                             <h1 class="panel-title">Unireo</h1>
-                            <p style="padding-left:50px;padding-top: 25px">Apply uni is a platform where you can search across the globe for your desired University and your passioned course. Our platform allows to not only search and register. It directs in such a way that you can achieve your goals.Apply Uni is one best Platforms in the world that makes sure the student is directed towards the desired university. Apply uni is user Friendly platform.</p>
+                            <p style="padding-left:50px;padding-top: 25px">Unireo is a platform where you can search across the globe for your desired University and your passioned course. Our platform allows to not only search and register. It directs in such a way that you can achieve your goals.Unireo is one best Platforms in the world that makes sure the student is directed towards the desired university. Unireo is user Friendly platform.</p>
                         </div>
                     </div>
                 </div>

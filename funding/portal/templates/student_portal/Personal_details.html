@@ -10,6 +10,9 @@
   .intl-tel-input{
     width: 100%;
   }
+  .submit:focus{
+    outline: none;
+  }
 </style>
 <div class="page-bar">
   <div class="page-title-breadcrumb">
@@ -240,17 +243,17 @@
  
           
 
-          <div class="col-lg-12 p-t-20 text-center">
+          <div class="col-lg-12 p-t-20  d-flex justify-content-between">
             <button
               type="submit" onclick="myguru()"
-              class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink"
+              class="submit" style="border-radius:20px;width:100px;background-color:#152770;color:white"
             >
               Submit
             </button>
             <a href="/stdacd">
             <button
               type="button"
-              class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-default"
+              class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-default submit" style="border-radius:20px"
             >
               Next
             </button>
