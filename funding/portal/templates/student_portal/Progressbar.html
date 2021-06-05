@@ -71,13 +71,16 @@
               <form action="/student/progress/{{uniname}}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
               <div class="col-6">
-                <label>{{rfd}}</label>>
-                <label>Pls Upload as Single File</label>>
-                <input type="file" name="rfd">
-                  <br>
+                <h4 class="heading-row text-center" >{{rfd}}(Pls Upload as Single File)</h4>
               </div>
-              <button type="submit" value="submit">Submit</button>
-              </form>>
+                <div class="col-3">
+                  <input type="file" name="rfd" style="margin-left: 100px;">
+                </div>
+                
+                  <br>
+              
+              <button class="btn btn-primary btn-md " style="margin-left: 100px; margin-top:4px" value="">Submit</button>
+              </form>
               {% endif %}
    
             <div class="col-6">
