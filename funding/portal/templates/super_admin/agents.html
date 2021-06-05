@@ -46,7 +46,6 @@
                                                     <th> No </th>
                                                     <th> Name </th>
                                                     <th> Agent id </th>
-    
                                                     <th> Ph No </th>
                                                     <th> Email </th>
                                                 </tr>
@@ -59,7 +58,7 @@
                                                             alt="">
                                                     </td>
                                                     <td class="left">{{forloop.counter}}</td>
-                                                    <td>{{i.Firstname}} </td>
+                                                    <td> <a href="agent/overview/{{i.Agentid}}">{{i.Firstname}} </a></td>
                                                     <td class="left">{{i.Agentid}}</td>
                                                     
                                                     <td>{{i.Phonenumber}}</td>

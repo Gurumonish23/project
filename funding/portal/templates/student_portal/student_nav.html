@@ -9,7 +9,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta name="description" content="Responsive Admin Template" />
 	<meta name="author" content="SmartUniversity" />
-	<title>Apply Uni</title>
+	<title>Unireo</title>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -68,7 +68,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/css/intlTelInput.css" rel="stylesheet" media="screen">
 	<style>
 		*{
-			font-family: 'Roboto', sans-serif;!important
+			font-family: 'Roboto', sans-serif !important;
 		}
 		.new {
 			outline: none;
@@ -109,6 +109,23 @@
 		  .custom-file-input:active::before {
 			background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 		  }
+		  .white-sidebar-color .sidemenu-container{
+			  background-color:#154770 !important;
+
+		  }
+		  .nav-link{
+			  color:white !important;
+		  }
+		  .nav-item a:hover{
+			  background-color: none , !important;
+		  }
+		  .page-logo{
+			  background-color: #154770 !important;
+		  }
+		  .user-panel .info p{
+			  color:white!important;
+		  }
+		  
 	</style>
 
 
@@ -125,8 +142,6 @@
 				<!-- logo start -->
 				<div class="page-logo">
 					<a href="/">
-						<span><img src="{% static 'images/logo3.png' %}"
-								style="width: 50px;height: 45px;left:-10px;position: relative;" /></span>
 						<span class="logo-default">Unireo</span> </a>
 				</div>
 				<!-- logo end -->
@@ -180,7 +195,7 @@
 		<div class="page-container">
 			<!-- start sidebar menu -->
 			<div class="sidebar-container">
-				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
+				<div class="sidemenu-container navbar-collapse collapse fixed-menu" style="height: 100vh;">
 					<div id="remove-scroll" class="left-sidemenu">
 						<ul class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
 							data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">

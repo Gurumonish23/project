@@ -8,6 +8,7 @@ from portal.models.studentinfo import Student
 from portal.models.courses import Courses
 from portal.models.stdappli import Stdappli
 from datetime import date
+from portal.models.application import Application
 
 from django.core.files.storage import FileSystemStorage
 
@@ -55,7 +56,19 @@ class stu_search(View):
     def get(self,request,name="a"):
         data={}
         if(name=="a"):
-            total_univs=University.objects.all()
+            university1=University.objects.all()
+            total_univs=[]
+            for i in university1:
+                try:
+                    unidetail=Univdetail.objects.all().get(Email=i.Email)
+                    unicon=Univcon.objects.all().get(Email=i.Email)
+                    application=Application.objects.get(Email=i.Email)
+                except:
+                    unidetail=False
+                    unicon=False
+                    application=False
+                if(unidetail and unicon and application):
+                    total_univs.append(i)
         else:
             search=Univcon.objects.filter(Location__icontains=name)
             total_univs=University.objects.all()

@@ -9,7 +9,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta name="description" content="Responsive Admin Template" />
 	<meta name="author" content="SmartUniversity" />
-	<title>Apply Uni</title>
+	<title>Unireo</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<!-- google font -->
@@ -50,9 +50,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 	<style>
 		* {
-			font-family: 'Roboto', sans-serif !importantimportant;
+			font-family: 'Roboto', sans-serif !important;
 		}
-
+		* {
+			font-family: 'Roboto', sans-serif ;
+		}
 		.new {
 			outline: none;
 		}
@@ -63,9 +65,9 @@
 		}
 		.custom-file-input::-webkit-file-upload-button {
 			visibility: hidden;
-		  }
-		  .custom-file-input::before {
-			  margin-top: 20px;;
+		}
+		.custom-file-input::before {
+			  margin-top:-30px;;
 			content: 'Select File';
 			display: inline-block;
 			background: linear-gradient(top, #f9f9f9, #e3e3e3);
@@ -85,6 +87,23 @@
 		  .custom-file-input:active::before {
 			background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 		  }
+		  .white-sidebar-color .sidemenu-container{
+			  background-color:#154770 !important;
+
+		  }
+		  .nav-link{
+			  color:white !important;
+		  }
+		  .nav-item a:hover{
+			  background-color: none , !important;
+		  }
+		  .page-logo{
+			  background-color: #154770 !important;
+		  }
+		  .user-panel .info p{
+			  color:white!important;
+		  }
+
 	</style>
 
 </head>
@@ -99,8 +118,6 @@
 				<!-- logo start -->
 				<div class="page-logo">
 					<a href="/">
-						<span><img src="{% static 'images/logo3.png' %}"
-								style="width: 50px;height: 45px;left:-10px;position: relative;" /></span>
 						<span class="logo-default">Unireo</span> </a>
 				</div>
 				<!-- logo end -->
@@ -117,82 +134,6 @@
 				<div class="top-menu">
 					<ul class="nav navbar-nav pull-right">
 
-
-						<!-- start notification dropdown -->
-						<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
-							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
-								data-close-others="true">
-								<i class="fa fa-bell-o"></i>
-								<span class="badge headerBadgeColor1"> 6 </span>
-							</a>
-							<ul class="dropdown-menu">
-								<li class="external">
-									<h3><span class="bold">Notifications</span></h3>
-									<span class="notification-label purple-bgcolor">New 6</span>
-								</li>
-								<li>
-									<ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
-										<li>
-											<a href="javascript:;">
-												<span class="time">just now</span>
-												<span class="details">
-													<span class="notification-icon circle deepPink-bgcolor"><i
-															class="fas fa-check"></i></span>
-													Congratulations!. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">3 mins</span>
-												<span class="details">
-													<span class="notification-icon circle purple-bgcolor"><i
-															class="fas fa-user o"></i></span>
-													<b>John Micle </b>is now following you. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">7 mins</span>
-												<span class="details">
-													<span class="notification-icon circle blue-bgcolor"><i
-															class="fa fa-comments-o"></i></span>
-													<b>Sneha Jogi </b>sent you a message. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">12 mins</span>
-												<span class="details">
-													<span class="notification-icon circle pink"><i
-															class="fa fa-heart"></i></span>
-													<b>Ravi Patel </b>like your photo. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">15 mins</span>
-												<span class="details">
-													<span class="notification-icon circle yellow"><i
-															class="fas fa-warning"></i></span> Warning! </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">10 hrs</span>
-												<span class="details">
-													<span class="notification-icon circle red"><i
-															class="fas fa-times"></i></span> Application error. </span>
-											</a>
-										</li>
-									</ul>
-									<div class="dropdown-menu-footer">
-										<a href="javascript:void(0)"> All notifications </a>
-									</div>
-								</li>
-							</ul>
-						</li>
-						<!-- end notification dropdown -->
-
 						<!-- start manage user dropdown -->
 						<li class="dropdown dropdown-user">
 							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
@@ -205,6 +146,10 @@
 								
 
 								<li class="divider"> </li>
+								<li>
+									<a href="/agent/overview">
+										<i class="icon-profile"></i> Profile </a>
+								</li>
 								<li>
 									<a href="/agentlogout">
 										<i class="icon-logout"></i> Log Out </a>
@@ -223,7 +168,7 @@
 		<div class="page-container">
 			<!-- start sidebar menu -->
 			<div class="sidebar-container">
-				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
+				<div class="sidemenu-container navbar-collapse collapse fixed-menu" style="height:100vh">
 					<div id="remove-scroll" class="left-sidemenu">
 						<ul class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
 							data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">

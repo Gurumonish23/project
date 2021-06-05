@@ -15,6 +15,7 @@ from portal.models.superadmin import Superadmin
 from portal.models.courses import Courses
 from portal.models.application import Application
 from portal.models.addemployee import Addemployee
+from portal.models.consultdetails import Consultancydetails
 
 
 class adminlogin(View):
@@ -141,6 +142,16 @@ def enroll(request,status="a",stdmail="b",univmail="c"):
 
     return redirect('adminstdhome')
 
+def admin_agent_overview(request,name="a"):
+    agent=Consultancy.objects.all().get(Agentid=name)
+    Email=agent.Email
+    agentdetails=Consultancydetails.objects.all().get(Email=Email)
+    data={}
+    data['agent']=agent
+    data['agentdetails']=agentdetails
+    return render(request,'super_admin/agentoverview.html',data)
+
+
 
 def students(request):
     stddetail=Stdappli.objects.all()
@@ -149,7 +160,17 @@ def students(request):
     #return render(request,'.html',data)
     return render(request,'super_admin/students.html',data)
 def universities(request):
-    university1=University.objects.all()
+    university2=University.objects.all()
+    university1=[]
+    for i in university2:
+        try:
+            unidetail=Univdetail.objects.all().get(Email=i.Email)
+            unicon=Univcon.objects.all().get(Email=i.Email)
+        except:
+            unidetail=False
+            unicon=False
+        if(unidetail and unicon):
+            university1.append(i)
     data={}
     list=[]
     list1=[]

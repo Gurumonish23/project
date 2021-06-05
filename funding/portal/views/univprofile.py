@@ -38,15 +38,19 @@ class univdetail(View):
         Web=request.POST.get('Web')
         About=request.POST.get('About')
         print('amar')
-        Upload=request.FILES['Upload']
+        Upload=None
         print("nanda")
-        fs=FileSystemStorage()
-        name=fs.save(Upload.name,Upload)
-        url=fs.url(name)
-        print(url)
+        #fs=FileSystemStorage()
+        #name=fs.save(Upload.name,Upload)
+        #url=fs.url(name)
+        #print(url)
         if(Email!=request.session['Email']):
             error_message="ohh your email doesn't matched with login mail"
+<<<<<<< HEAD
             return render(request,'BasicInformation2.html',{'error':error_message})
+=======
+            return render(request,'BasicInformation.html',{'error':error_message})
+>>>>>>> 6c0561fd799796729a8e69b13a3fd1a54af167aa
         else:
             university=University.get_university_by_email(Email)
             print(university.Email)
