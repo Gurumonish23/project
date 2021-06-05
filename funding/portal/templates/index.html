@@ -91,6 +91,22 @@
 		  .custom-file-input:active::before {
 			background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 		  }
+		  .white-sidebar-color .sidemenu-container{
+			  background-color:#154770 !important;
+
+		  }
+		  .nav-link{
+			  color:white !important;
+		  }
+		  .nav-item a:hover{
+			  background-color: none , !important;
+		  }
+		  .page-logo{
+			  background-color: #154770 !important;
+		  }
+		  .user-panel .info p{
+			  color:white!important;
+		  }
 	</style>
 
 </head>
@@ -103,10 +119,9 @@
 		<div class="page-header navbar navbar-fixed-top">
 			<div class="page-header-inner ">
 				<!-- logo start -->
-				<div class="page-logo">
+				<div class="page-logo text-center" >
 					<a href="/">
-						<span><img src="{% static 'images/logo3.png' %}"
-								style="width: 50px;height: 45px;left:-10px;position: relative;" /></span>
+						
 						<span class="logo-default">Unireo</span> </a>
 				</div>
 				<!-- logo end -->
@@ -122,83 +137,6 @@
 				<!-- start header menu -->
 				<div class="top-menu">
 					<ul class="nav navbar-nav pull-right">
-
-
-						<!-- start notification dropdown 
-						<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
-							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
-								data-close-others="true">
-								<i class="fa fa-bell-o"></i>
-								<span class="badge headerBadgeColor1"> 6 </span>
-							</a>
-							<ul class="dropdown-menu">
-								<li class="external">
-									<h3><span class="bold">Notifications</span></h3>
-									<span class="notification-label purple-bgcolor">New 6</span>
-								</li>
-								<li>
-									<ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
-										<li>
-											<a href="javascript:;">
-												<span class="time">just now</span>
-												<span class="details">
-													<span class="notification-icon circle deepPink-bgcolor"><i
-															class="fas fa-check"></i></span>
-													Congratulations!. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">3 mins</span>
-												<span class="details">
-													<span class="notification-icon circle purple-bgcolor"><i
-															class="fas fa-user o"></i></span>
-													<b>John Micle </b>is now following you. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">7 mins</span>
-												<span class="details">
-													<span class="notification-icon circle blue-bgcolor"><i
-															class="fa fa-comments-o"></i></span>
-													<b>Sneha Jogi </b>sent you a message. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">12 mins</span>
-												<span class="details">
-													<span class="notification-icon circle pink"><i
-															class="fa fa-heart"></i></span>
-													<b>Ravi Patel </b>like your photo. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">15 mins</span>
-												<span class="details">
-													<span class="notification-icon circle yellow"><i
-															class="fas fa-warning"></i></span> Warning! </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">10 hrs</span>
-												<span class="details">
-													<span class="notification-icon circle red"><i
-															class="fas fa-times"></i></span> Application error. </span>
-											</a>
-										</li>
-									</ul>
-									<div class="dropdown-menu-footer">
-										<a href="javascript:void(0)"> All notifications </a>
-									</div>
-								</li>
-							</ul>
-						</li>
-					 end notification dropdown  -->
-
 						<!-- start manage user dropdown -->
 						<li class="dropdown dropdown-user">
 							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
@@ -232,7 +170,7 @@
 		<div class="page-container">
 			<!-- start sidebar menu -->
 			<div class="sidebar-container">
-				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
+				<div class="sidemenu-container navbar-collapse collapse fixed-menu" style="height:100vh">
 					<div id="remove-scroll" class="left-sidemenu">
 						<ul class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
 							data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
@@ -259,7 +197,6 @@
 									<span class="title" style="font-family: 'Montserrat', sans-serif;">Dashboard</span>
 
 								</a>
-
 							</li>
 							<li class="nav-item">
 								<a href="#" class="nav-link nav-toggle"><i class="material-icons">group</i>
