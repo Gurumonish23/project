@@ -1,4 +1,10 @@
 {% extends 'student_portal/student_nav.html' %} {% block content %}
+<style>
+  .submit-btn{
+    color:#154770 !important;
+
+  }
+</style>
 <div class="page-bar">
   <div class="page-title-breadcrumb">
       <div class=" pull-left">
@@ -23,15 +29,15 @@
       </div>
       
       <div class="card-body row">
-        <div class="card-body row">
+        
           
           <form action="/stdpro"  method="post"  enctype="multipart/form-data">
             {% csrf_token %}
-          
+            <div class="card-body row">
           <div>
-            <div>
+            <div class="d-flex">
               <h2>English Profieciency</h2>
-              <label class="pull-right margin-0">
+              <label class="pull-right margin-0 d-flex align-items-center justify-content-center mr-3">
                 <i class="mdl-icon-toggle__label material-icons addenglish"
                   >add_box</i
                 >
@@ -91,9 +97,9 @@
         {% endfor %}
           <div class="row" id="addenglish"></div>
         
-          <div>
+          <div class="d-flex">
             <h2>Admission test</h2>
-            <label class="pull-right margin-0">
+            <label class="pull-right margin-0 d-flex justify-content-center align-items-center">
               <i class="mdl-icon-toggle__label material-icons addgre"
                 >add_box</i
               >
