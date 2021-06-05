@@ -2,9 +2,9 @@ from django.db import models
 from django.core.validators import MinLengthValidator
 
 class Event(models.Model):
-    Ename=models.CharField(max_length=50,null=True)
-    Edate=models.CharField(max_length=50,null=True)
-    Edetails=models.CharField(max_length=50,null=True)
+    Ename=models.CharField(max_length=500,null=True)
+    Edate=models.CharField(max_length=500,null=True)
+    Edetails=models.CharField(max_length=500,null=True)
     Ephoto=models.FileField(upload_to="",null=True)
     Email=models.EmailField(null=True)
 
@@ -19,9 +19,9 @@ class Event(models.Model):
         return Event.objects.all()
 
 class Blog(models.Model):
-    Bname=models.CharField(max_length=50,null=True)
-    Bdate=models.CharField(max_length=50,null=True)  
-    Bdetail=models.CharField(max_length=50,null=True)
+    Bname=models.CharField(max_length=500,null=True)
+    Bdate=models.CharField(max_length=500,null=True)  
+    Bdetail=models.CharField(max_length=500,null=True)
     Bphoto=models.FileField(upload_to="",null=True)
     Email=models.EmailField(null=True)
 

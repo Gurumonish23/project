@@ -2,12 +2,12 @@ from django.db import models
 from django.core.validators import MinLengthValidator
 
 class Consultancy(models.Model):
-    Firstname= models.CharField(max_length=50)
+    Firstname= models.CharField(max_length=500)
     Phonenumber=models.CharField(max_length=500)
     Email = models.EmailField()
     Password = models.CharField(max_length=500)
     Confirmpassword = models.CharField(max_length=500)
-    Agentid=models.CharField(max_length=50,null=True)
+    Agentid=models.CharField(max_length=500,null=True)
 
     def _str_(self):
         return self.Firstname

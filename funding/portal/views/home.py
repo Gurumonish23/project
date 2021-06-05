@@ -33,8 +33,11 @@ class stu_accept(View):
         
         Email=request.session['Email']
         offer=Offerletter(Letter=Letter,Name=Name,Email=Email,rfd=rfd)
+        try:
 
-        track=Offerletter.objects.all().filter(Name=Name).get(Email=Email)
+            track=Offerletter.objects.all().filter(Name=Name).get(Email=Email)
+        except:
+            track=False
         if(track):
             track.delete()
 

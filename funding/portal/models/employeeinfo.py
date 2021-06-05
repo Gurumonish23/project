@@ -2,13 +2,13 @@ from django.db import models
 from django.core.validators import MinLengthValidator
 
 class Employee(models.Model):
-    Empname=models.CharField(max_length=50,null=True)
-    Empdesg=models.CharField(max_length=50,null=True)
-    Empphone=models.CharField(max_length=50,null=True)
-    Empmail=models.EmailField(max_length=50,null=True)
-    Emppassword=models.CharField(max_length=50,null=True)
-    Empconfirmpassword=models.CharField(max_length=50,null=True)
-    Univmail=models.EmailField(max_length=50,null=True)
+    Empname=models.CharField(max_length=500,null=True)
+    Empdesg=models.CharField(max_length=500,null=True)
+    Empphone=models.CharField(max_length=500,null=True)
+    Empmail=models.EmailField(max_length=500,null=True)
+    Emppassword=models.CharField(max_length=500,null=True)
+    Empconfirmpassword=models.CharField(max_length=500,null=True)
+    Univmail=models.EmailField(max_length=500,null=True)
 
 
     def __str__(self):
