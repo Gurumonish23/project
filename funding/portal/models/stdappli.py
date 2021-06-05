@@ -3,6 +3,7 @@ from django.core.validators import MinLengthValidator
 
 class Stdappli(models.Model):
     id=models.CharField(max_length=500,null=False,primary_key=True)
+    agentid=models.CharField(max_length=500,null=True)
     stdname= models.CharField(max_length=500,null=True)
     univname= models.CharField(max_length=500,null=True)
     stdmail= models.CharField(max_length=500,null=True)

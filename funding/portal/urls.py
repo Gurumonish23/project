@@ -117,7 +117,7 @@ from .views.admin import students
 from .views.admin import universities
 from .views.admin import agent
 from .views.admin import commision
-from .views.admin import addcommision,adminlogin,adminlogout,addemployee
+from .views.admin import addcommision,adminlogin,adminlogout,addemployee,admin_agent_overview
 
 
 
@@ -223,6 +223,7 @@ urlpatterns=[
     path('newstusignup',new_student_signup,name="name"),
     path('newunisignup',new_university_signup,name="name"),
     path('agent/overview',agent_overview,name="overview"),
+    path('admin1/agent/overview/<str:name>',admin_agent_overview,name="overview-admin"),
     path('agent/update',agent_update,name="update"), 
 
     path('agentsignup',agentsignup.as_view(),name='agentsignup'),

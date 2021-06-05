@@ -11,6 +11,10 @@ from django.core.files.storage import FileSystemStorage
 from portal.models.studentinfo import Student
 from portal.models.consultdetails import Consultancydetails
 from portal.models.courses import Courses
+from portal.models.application import Application
+from portal.models.univdetail import Univdetail,Univcon
+
+
 
 def agent_home(request):
     stddetail=Stdappli.objects.filter(agentmail=request.session['Email2'])
@@ -144,7 +148,21 @@ class agent_academic(View):
     
 class agent_course(View):
     def get(self,request):
-        universities=University.objects.all()
+        universities2=University.objects.all()
+        universities=[]
+        for i in universities2:
+                try:
+                    unidetail=Univdetail.objects.all().get(Email=i.Email)
+                    unicon=Univcon.objects.all().get(Email=i.Email)
+                    application=Application.objects.get(Email=i.Email)
+                except:
+                    unidetail=False
+                    unicon=False
+                    application=False
+                if(unidetail and unicon and application):
+                    universities.append(i)
+
+
         data={}
         data["universities"]=universities
         
@@ -282,7 +300,13 @@ class agent_professional(View):
         data={'value':value}
         return render(request,'agent_portal/Profressional.html')
 def agent_overview(request):
-    return render(request,'agent_portal/agent_overview.html')
+    Email=request.session['Email2']
+    agent=Consultancy.objects.all().get(Email=Email)
+    agentdetails=Consultancydetails.objects.all().get(Email=Email)
+    data={}
+    data['agent']=agent
+    data['agentdetails']=agentdetails
+    return render(request,'agent_portal/agent_overview.html',data)
 def agent_update(request):
     return render(request,'agent_portal/agent_update.html')
 
@@ -357,7 +381,7 @@ class Consultbank(View):
             cons1.delete()
         cons.register()
 
-        value={'Cname': Cname, 'Aid':Aid,'Aadd':Aadd,'Email':Email,
+        value={'Cname': Cname, 'Aid':Aid,'Aadd':Aadd,'Email':Email,'Rno':Rno,'Rbody':Rbody,
               'Bname':Bname,'Accountnumber':Accountnumber,'Branch':Branch,'Ifsccode':Ifsccode}
 
         return render(request,'agent_portal/basic.html',{'value':value})
