@@ -45,8 +45,9 @@
               placeholder="8541236978"
             />
           </div>
-
+          {% if request.session.Emailemp == None %}
           <button type="submit" class="btn btn-primary">Submit</button>
+          {% endif %}
         </form>
       </div>
     </div>
@@ -77,8 +78,9 @@
               placeholder=""
             />
           </div>
-
+          {% if request.session.Emailemp == None %}
           <button type="submit" class="btn btn-primary">Submit</button>
+          {% endif %}
         </form>
       </div>
     </div>
