@@ -93,7 +93,7 @@
                       </div>
                       <div class="col-lg-2">
                         <label class="mdl-checkbox mdl-js-checkbox" for="checkbox1">
-                            <input type="checkbox" id="checkbox1" class="mdl-checkbox__input" name="Intakes[]" value="PG" > 
+                            <input type="checkbox" id="checkbox1" class="mdl-checkbox__input" name="Intakes[]" value="PG" required> 
                             <span class="mdl-checkbox__label">UG</span>
                         </label>
                         
@@ -102,7 +102,7 @@
                         {% else %}
                         <div class="col-lg-2">
                         <label class="mdl-checkbox mdl-js-checkbox" for="checkbox1">
-                            <input type="checkbox" id="checkbox1" class="mdl-checkbox__input" name="Intakes[]" value="UG" > 
+                            <input type="checkbox" id="checkbox1" class="mdl-checkbox__input" name="Intakes[]" value="UG" required> 
                             <span class="mdl-checkbox__label">UG</span>
                         </label>
                         
@@ -110,7 +110,7 @@
                       <div class="col-lg-2">
                         
                         <label class="mdl-checkbox mdl-js-checkbox" for="checkbox2">
-                            <input type="checkbox" id="checkbox2" class="mdl-checkbox__input" name="Intakes[]" value="PG">
+                            <input type="checkbox" id="checkbox2" class="mdl-checkbox__input" name="Intakes[]" value="PG" required>
                                 
                             <span class="mdl-checkbox__label">PG</span>
                         </label>
@@ -122,50 +122,50 @@
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="txtLasttName" name="Award" value="{{value.Award}}">
+                        <input class="mdl-textfield__input" type="text" id="txtLasttName" name="Award" value="{{value.Award}}" required>
                         <label class="mdl-textfield__label">Awarding Body</label>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="number" id="txtRollNo"  name="Staff" value="{{value.Staff}}">
+                        <input class="mdl-textfield__input" type="number" id="txtRollNo"  name="Staff" value="{{value.Staff}}" required>
                         <label class="mdl-textfield__label">No of Staffs</label>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="number" id="txtemail"  name="Students" value="{{value.Students}}">
+                        <input class="mdl-textfield__input" type="number" id="txtemail"  name="Students" value="{{value.Students}}" required>
                         <label class="mdl-textfield__label">No of Students</label>
                         <span class="mdl-textfield__error"></span>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Departments" value="{{value.Departments}}">
+                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Departments" value="{{value.Departments}}" required>
                         <label class="mdl-textfield__label">No of Departments</label>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Location" value="{{value.Location}}">
+                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Location" value="{{value.Location}}" required>
                         <label class="mdl-textfield__label">Location</label>
                     </div>
                 </div>
                 <div class="col-lg-12 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">  
-                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Link" value="{{value.Link}}">
+                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Link" value="{{value.Link}}" required>
                         <label class="mdl-textfield__label">Univerity Linkedin url</label>
                     </div>
                 </div>
                 <div class="col-lg-12 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Face" value="{{value.Face}}">
+                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Face" value="{{value.Face}}" required>
                         <label class="mdl-textfield__label">Univerity Facebook url</label>
                     </div>
                 </div>
                 <div class="col-lg-12 p-t-20">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Insta" value="{{value.Insta}}">
+                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Insta" value="{{value.Insta}}" required>
                         <label class="mdl-textfield__label">Univerity Instagram url</label>
                     </div>
                 </div>
@@ -175,7 +175,7 @@
                     {% for i in value.Req %}
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <i class="mdl-icon-toggle__label material-icons addreq pull-right" >add_box</i>
-                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Req[]" value="{{i}}">
+                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Req[]" value="{{i}}" required>
                         <label class="mdl-textfield__label">Requirments</label>
                     </div>
                     {% endfor %}
@@ -184,7 +184,7 @@
                 <div class="col-lg-12 p-t-20">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                     <i class="mdl-icon-toggle__label material-icons addreq pull-right" >add_box</i>
-                    <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Req[]" value="{{value.Req}}">
+                    <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Req[]" value="{{value.Req}}" required>
                     <label class="mdl-textfield__label">Requirments</label>
                 </div>
             </div>
@@ -198,7 +198,7 @@
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <i class="mdl-icon-toggle__label material-icons addfea pull-right" >add_box</i>
         
-                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Features[]" value="{{i}}">
+                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Features[]" value="{{i}}" required>
                         <label class="mdl-textfield__label">Features</label>
                     </div>
                     {% endfor %}
@@ -208,7 +208,7 @@
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <i class="mdl-icon-toggle__label material-icons addfea pull-right" >add_box</i>
         
-                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Features[]" value="{{value.Features}}">
+                        <input class="mdl-textfield__input" type="text" id="txtParentName"  name="Features[]" value="{{value.Features}}" required>
                         <label class="mdl-textfield__label">Features</label>
                     </div>
                 </div>
@@ -236,7 +236,7 @@
                         type="file"
                         class="form-control-file input100 custom-file-input"
                         id="Video"
-                        name="Video"
+                        name="Video" required
                       />
                       <a href="{{value.Video}}">clickhere</a>
       
@@ -247,10 +247,10 @@
                 <div class="col-lg-12 p-t-20 text-center">
                    <a href="/univdetail"> <button type="button" 
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-default">Previous</button></a>
-                    {% if request.session.Emailemp == None %}
+                    
                     <button type="submit" onclick="myguru()"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-pink">Submit</button>
-                    {% endif %}
+                    
                 </div>
             </form>
             </div>

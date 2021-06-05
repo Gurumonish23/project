@@ -18,6 +18,9 @@
 </div>
 
 <div class="row">
+  {% if text %}
+  <center><h1 style="color:blue">{{text}}<h1></center>
+  {% endif %}
     {% for i in listeve %}
     <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

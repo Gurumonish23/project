@@ -16,6 +16,9 @@
     </div>
 </div>
 <div class="row">
+    {% if text %}
+  <center><h1 style="color:blue">{{text}}<h1></center>
+  {% endif %}
     {% for record in listblo %}
     <div class="col">
         <div class="card " style="width: 25rem;">
