@@ -167,7 +167,7 @@
 								</div>
 							</li>
 							<li class="nav-item start open">
-								<a href="/admin/home" class="nav-link nav-toggle">
+								<a href="/admin1/home" class="nav-link nav-toggle">
 									<i class="material-icons">dashboard</i>
 
 									<span class="title" style="font-family: 'Montserrat', sans-serif;">Dashboard</span>
@@ -178,55 +178,55 @@
 							{% if request.session.roleacess != None %}
 							{% if "Student" in request.session.roleacess %}
 							<li class="nav-item">
-								<a href="/admin/students" class="nav-link nav-toggle"><i class="material-icons">group</i>
+								<a href="/admin1/students" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Students</span></a>
 							</li>
 							{% endif %}
 							{% else %}
 							<li class="nav-item">
-								<a href="/admin/students" class="nav-link nav-toggle"><i class="material-icons">group</i>
+								<a href="/admin1/students" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Students</span></a>
 							</li>
 							{% endif %}
 							{% if request.session.roleacess != None %}
 							{% if "University" in request.session.roleacess %}
 							<li class="nav-item">
-								<a href="/admin/universities" class="nav-link nav-toggle"><i class="material-icons">group</i>
+								<a href="/admin1/universities" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Universities</span></a>
 							</li>
 							{% endif %}
 							{% else %}
 							<li class="nav-item">
-								<a href="/admin/universities" class="nav-link nav-toggle"><i class="material-icons">group</i>
+								<a href="/admin1/universities" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Universities</span></a>
 							</li>
 							{% endif %}
 							{% if request.session.roleacess != None %}
 							{% if "Agent" in request.session.roleacess %}
 							<li class="nav-item">
-								<a href="/admin/agent" class="nav-link nav-toggle"><i class="material-icons">group</i>
+								<a href="/admin1/agent" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Consultancy</span></a>
 							</li>
 							{% endif %}
 							{% else %}
 							<li class="nav-item">
-								<a href="/admin/agent" class="nav-link nav-toggle"><i class="material-icons">group</i>
+								<a href="/admin1/agent" class="nav-link nav-toggle"><i class="material-icons">group</i>
 									<span class="title">Consultancy</span></a>
 							</li>
 							{% endif %}
 							<li class="nav-item">
-								<a href="/admin/commision" class="nav-link nav-toggle"><i class="material-icons">group</i>
-									<span class="title">Add Commision</span></a>
+								<a href="/admin1/commision" class="nav-link nav-toggle"><i class="material-icons">group</i>
+									<span class="title">Add Commission</span></a>
 							</li>
 							{% if request.session.roleacess == None %}
 							<li class="nav-item">
-								<a href="/admin/addemployee" class="nav-link nav-toggle"><i class="material-icons">group</i>
-									<span class="title">Add Employes</span></a>
+								<a href="/admin1/addemployee" class="nav-link nav-toggle"><i class="material-icons">group</i>
+									<span class="title">Add Employees</span></a>
 							</li>
 							{% endif %}
 	
 							<li class="nav-item">
-								<a href="/admin/settings" class="nav-link nav-toggle"> <i class="material-icons">settings</i>
+								<a href="/admin1/settings" class="nav-link nav-toggle"> <i class="material-icons">settings</i>
 									<span class="title">Password/Security</span> <span class="arrow"></span>
 
 								</a>
