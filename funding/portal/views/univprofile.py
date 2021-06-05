@@ -46,11 +46,7 @@ class univdetail(View):
         #print(url)
         if(Email!=request.session['Email']):
             error_message="ohh your email doesn't matched with login mail"
-<<<<<<< HEAD
-            return render(request,'BasicInformation2.html',{'error':error_message})
-=======
             return render(request,'BasicInformation.html',{'error':error_message})
->>>>>>> 6c0561fd799796729a8e69b13a3fd1a54af167aa
         else:
             university=University.get_university_by_email(Email)
             print(university.Email)
