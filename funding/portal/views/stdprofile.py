@@ -12,6 +12,7 @@ from portal.models.stddetail import Stdacd,Stdcour,Stdpro,Stdpro1,Stdind
 from portal.models.stdappli import Stdappli
 from portal.models.courses import Courses
 from portal.models.application import Application
+from portal.models.consultancyinfo import Consultancy
 from django.contrib.auth.models import User
 
 from datetime import datetime
@@ -539,9 +540,11 @@ class stdapplicour(View):
         status='applied'
         if(name2=='c'):
             name2='-'
+        else:
+            agnid=Consultancy.objects.all().get(Email=name2)
         
         savedappli=Stdappli(pstatus="process",id=id,stdname=stdname,univname=univname,stdmail=stdmail,univmail=univmail,
-        date=date,program=program,status=status,agentmail=name2,Coursename=coursename,fee=fee)
+        date=date,program=program,status=status,agentmail=name2,Coursename=coursename,fee=fee,agentid=agnid.Agentid)
         try:
             saved=Stdappli.objects.filter(univmail=univmail).get(stdmail=stdmail)
             if(saved):
